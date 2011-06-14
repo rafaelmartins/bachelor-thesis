@@ -1,0 +1,51 @@
+\documentclass[brazil,ruledheader]{abnt}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[printonlyused,withpage]{acronym}
+
+\makeatletter
+\usepackage{babel}
+\makeatother
+
+\begin{document}
+
+\autor{Rafael Gonçalves Martins}
+\titulo{PIDSIM - Ferramenta de simulação e controle de processos industriais
+    referenciais pela WEB utilizando abordagem FOSS}
+\orientador{Marlon José do Carmo}
+\comentario{Monografia apresentada para obtenção do Grau de Engenheiro de
+    Controle e Automação.}
+\instituicao{Centro Federal de Educação Tecnológica de Minas Gerais - Campus III}
+\local{Leopoldina - Minas Gerais, Brasil}
+\data{Julho de 2011}
+
+\capa
+\folhaderosto
+
+\include{aprovacao}
+\include{resumo}
+\include{abstract}
+\include{agradecimentos}
+\include{dedicatoria}
+
+\tableofcontents
+\listoffigures
+\listoftables
+
+\include{acronimos}
+
+\include{cap1-introducao}
+\include{cap2-processos_referenciais}
+\include{cap3-metodos_de_identificacao_e_sintonia}
+\include{cap4-software}
+\include{cap5-conclusoes}
+
+\bibliographystyle{abnt-num}
+\bibliography{monografia}
+
+\anexo
+
+\include{anexo1-metodos_numericos}
+\include{anexo2-modelagem_uml}
+
+\end{document}
