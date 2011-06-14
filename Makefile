@@ -29,6 +29,10 @@ all: $(MAIN).pdf
 clean:
 	$(RM) *.{aux,bbl,blg,dvi,lof,log,lot,pdf,toc}
 
+.PHONY: view
+view: all
+	evince $(MAIN).pdf
+
 $(MAIN).pdf: $(addsuffix .tex, $(TEX_FILES))
 	latex $(MAIN)
 	latex $(MAIN)
