@@ -38,6 +38,7 @@ $(MAIN).pdf: $(addsuffix .tex, $(TEX_FILES))
 	latex $(MAIN)
 	$(MAKE) $(MAIN).bbl
 	latex $(MAIN)
+	latex $(MAIN)
 	dvipdf $(MAIN)
 
 $(MAIN).bbl: $(MAIN).bib $(addsuffix .aux, $(TEX_FILES))
