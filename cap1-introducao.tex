@@ -1,7 +1,6 @@
 \chapter{Introdução\label{cap:introducao}}
 
-Neste capítulo são apresentados o objetivo deste trabalho e a estrutura básica
-do mesmo.
+Neste capítulo são apresentados o objetivo e a estrutura básica deste trabalho.
 
 \section{Histórico}
 
@@ -17,6 +16,19 @@ do mesmo.
     Desde então os controladores industriais uma das partes mais importantes de qualquer
     planta industrial, garantindo a estabilidade da operação e fazendo valer as restrições
     do processo.
+
+    Os controladores \acs{PID} são capazes de compensar os 2 tipos de erros encontrados
+    nas plantas industriais: o erro de transiente, que é o erro encontrado nos momentos
+    iniciais da operação da planta, e o erro de estado estacionário, que é o erro de
+    ajuste de planta, ou seja, a saida da planta atingiu o nivel de saída esperado, de
+    acordo com o ajuste da entrada da planta.
+
+    Os controladores \acs{PID} são constantemente utilizados nas plantas industriais para
+    ajustes de nivel, vazão, velocidade e posição, dentre outros, pela sua caracteristica
+    de estabilidade e pela facilidade de sintonia, se utilizada uma abordagem prática
+    para identificação da planta, que é um dos maiores problemas para os engenheiros.
+
+    TODO: expandir
 
 \section{Identicação do problema}
     
@@ -67,18 +79,20 @@ do mesmo.
 
 \section{Estrutura do trabalho}
 
-    O desenvolvimento deste trabalho está dividida em capítulos conforme sumarizados a seguir:
+    O desenvolvimento deste trabalho está dividida em capítulos conforme sumarizados
+    a seguir:
 
-    \begin{itemize}
-        \item O Capítulo 2 descreve os processos industriais referenciais utilizados no
-            projeto, bem como suas caracteristicas principais.
-        \item O Capítulo 3 descreve os metodos de sintonia e identificação de sistemas
-            utilizados no projeto e discute as vantagens e desvantagens da escolha de
-            cada um para as simulações.
-        \item O Capítulo 4 aborda o desenvolvimento do software, discutindo as etapas de
-            desenvolvimento e a metodologia utilizada na construção do mesmo.
-        \item O Capítulo 5 relata os resultados e as conclusões alcançadas no desenvolvimento
-            do trabalho, também são propostas sugestões para trabalhos futuros com objetivo
-            de aperfeiçoar o software desenvolvido.
-    \end{itemize}
+    O Capítulo 2 descreve os processos industriais referenciais utilizados no projeto,
+    bem como suas caracteristicas principais.
+    
+    O Capítulo 3 descreve os metodos de sintonia e identificação de sistemas utilizados
+    no projeto e discute as vantagens e desvantagens da escolha de cada um para as
+    simulações.
+    
+    O Capítulo 4 aborda o desenvolvimento do software, discutindo as etapas de
+    desenvolvimento e a metodologia utilizada na construção do mesmo.
+    
+    O Capítulo 5 relata os resultados e as conclusões alcançadas no desenvolvimento do
+    trabalho, também são propostas sugestões para trabalhos futuros com objetivo de
+    aperfeiçoar o software desenvolvido.
 
