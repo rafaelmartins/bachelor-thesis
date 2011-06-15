@@ -1,1 +1,2 @@
-\.(aux|bbl|blg|dvi|lof|log|lot|pdf|toc)$
+\.(aux|bbl|blg|dvi|lof|log|lot|toc)$
+monografia\.pdf$
