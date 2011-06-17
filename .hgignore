@@ -1,2 +1,3 @@
 \.(aux|bbl|blg|dvi|lof|log|lot|toc)$
-monografia\.pdf$
+^monografia\.pdf$
+^imagens/

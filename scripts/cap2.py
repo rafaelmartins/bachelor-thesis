@@ -10,6 +10,8 @@ from subprocess import call
 
 import os
 
+plot_registry = {}
+
 
 class Plot:
 
@@ -23,8 +25,13 @@ class Plot:
         self.kwargs = kwargs
         if self.nmethod is None:
             self.nmethod = Euler
+        if model in plot_registry:
+            plot_registry[model] += 1
+        else:
+            plot_registry[model] = 1
+        self.plot_id = plot_registry[model]
 
-    def run(self, filename):
+    def run(self, output_dir):
         model = models_index[self.model]('pt_BR')
         g = model.callback(**self.kwargs)
         t, y = self.nmethod(g, self.sample_time, self.total_time)
@@ -38,14 +45,37 @@ class Plot:
             legend.append('%s=%s' % (arg, self.kwargs[arg]))
         ax.legend(loc='best', prop={'size': 'x-small'}, title='; '.join(legend))
         canvas = FigureCanvas(fig)
-        canvas.print_eps(filename)
+        filename = 'cap2_model%i_%i.eps' % (self.model, self.plot_id)
+        canvas.print_eps(os.path.join(output_dir, filename))
 
 
 plots = [
     Plot(1, 0.01, 6, k=1, Tau=1),
     Plot(2, 0.01, 35, k=1, T1=2, T2=5),
     Plot(3, 0.01, 35, k=1, T1=2, T2=5),
-    Plot(4, 0.01, 40, k=1, T1=2, T2=4, T3=5, T4=3, Tt=2, pade_order=5)
+    Plot(4, 0.01, 40, k=1, T1=2, T2=4, T3=5, T4=3, Tt=2, pade_order=5),
+    Plot(5, 0.01, 6, n=1),
+    Plot(5, 0.01, 8, n=2),
+    Plot(5, 0.01, 10, n=3),
+    Plot(5, 0.01, 14, n=4),
+    Plot(6, 0.01, 16, Alpha=0.2),
+    Plot(6, 0.01, 16, Alpha=0.5),
+    Plot(7, 0.01, 12, Alpha=0.2),
+    Plot(7, 0.01, 12, Alpha=0.5),
+    Plot(7, 0.01, 12, Alpha=1),
+    Plot(7, 0.01, 12, Alpha=5),
+    Plot(8, 0.01, 6, Tau=0.5, pade_order=5),
+    Plot(8, 0.01, 14, Tau=2, pade_order=5),
+    Plot(8, 0.01, 60, Tau=10, pade_order=5),
+    Plot(9, 0.01, 20, Tau=2, pade_order=5),
+    Plot(9, 0.01, 40, Tau=5, pade_order=5),
+    Plot(10, 0.01, 60),
+    Plot(11, 0.01, 80),
+    Plot(12, 0.01, 50, Zeta=1, Omega=1),
+    Plot(12, 0.01, 10, Zeta=1, Omega=2),
+    Plot(12, 0.01, 10, Zeta=1, Omega=10),
+    Plot(13, 0.01, 10),
+    Plot(14, 0.01, 50, Tau=5, pade_order=5)
 ]
 
 
@@ -55,8 +85,5 @@ dest_dir = os.path.abspath(os.path.join(cwd, '..', 'imagens'))
 if not os.path.exists(dest_dir):
     os.makedirs(dest_dir)
 
-cont = 1
 for plot in plots:
-    filename = 'cap2_%i_model%i.eps' % (cont, plot.model)
-    plot.run(os.path.join(dest_dir, filename))
-    cont += 1
+    plot.run(dest_dir)
