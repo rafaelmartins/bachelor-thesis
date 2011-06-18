@@ -21,6 +21,8 @@ TEX_FILES = \
 	anexo1-metodos_numericos \
 	anexo2-modelagem_uml
 
+SCRIPTS = \
+	cap2.py
 
 .PHONY: all
 all: $(MAIN).pdf
@@ -43,3 +45,9 @@ $(MAIN).pdf: $(addsuffix .tex, $(TEX_FILES))
 
 $(MAIN).bbl: $(MAIN).bib $(addsuffix .aux, $(TEX_FILES))
 	bibtex $(MAIN) || [[ -f $(MAIN).bbl ]]
+
+.PHONY: images
+images:
+	for i in $(SCRIPTS); do python scripts/$${i}; done
+	touch $(MAIN).tex
+	$(MAKE) all
