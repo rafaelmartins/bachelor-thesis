@@ -1,4 +1,4 @@
-\chapter{Apresentação dos processos referenciais industriais
+\chapter{Os processos referenciais industriais
     \label{cap:processos-referenciais}}
 
 \section{Introdução}
@@ -132,7 +132,7 @@ do aluno que utiliza-se deste software como ferramenta de estudo dos controlador
 \subsection{Processo de quarta ordem}
     
     O processo de quarta ordem tem dinâmica definida pelo parametro $\alpha$,
-    sendo facilmente controlavel para valores pequenos de $\alpha$.
+    sendo facilmente controlavel para valores pequenos de $\alpha$, entre 0 e 1.
     
     Para $\alpha = 1$, este processo se comporta como o anterior, para $n = 4$.
     
@@ -152,34 +152,121 @@ do aluno que utiliza-se deste software como ferramenta de estudo dos controlador
 
 \subsection{Processo com três pólos iguais e zero no semi-plano direito}
 
+    O processo com três pólos iguais e zero no semi-plano direito do plano $s$
+    possui dinâmica definida pelo parametro $\alpha$. Quanto maior o valor de
+    $\alpha$, maior a dificuldade para se controlar o processo utilizando-se
+    um controlador \acs{PID} convencional.
+    
+    Por possuir tempo morto, pode ser considerado um processo facil de identificar
+    utilizando-se os métodos de identificação por curva de reação.
+
+    \begin{equation}
+        G_p(s) = \frac{1-\alpha s}{(s+1)^3}
+    \end{equation}
+
     \begin{center}
-        \includegraphics[width=\textwidth]{imagens/cap2_model7_1.eps}
-        \captionof{figure}{Processo com três pólos iguais e zero no semi-plano direito}
+        \includegraphics[width=0.75\textwidth]{imagens/cap2_model7_1.eps}
+        \captionof{figure}{Processo com três pólos iguais e zero no semi-plano direito - $\alpha = 0.2$}
+    \end{center}
+
+    \begin{center}
+        \includegraphics[width=0.75\textwidth]{imagens/cap2_model7_2.eps}
+        \captionof{figure}{Processo com três pólos iguais e zero no semi-plano direito - $\alpha = 0.5$}
+    \end{center}
+    
+    \begin{center}
+        \includegraphics[width=0.75\textwidth]{imagens/cap2_model7_3.eps}
+        \captionof{figure}{Processo com três pólos iguais e zero no semi-plano direito - $\alpha = 1$}
+    \end{center}
+    
+    \begin{center}
+        \includegraphics[width=0.75\textwidth]{imagens/cap2_model7_4.eps}
+        \captionof{figure}{Processo com três pólos iguais e zero no semi-plano direito - $\alpha = 5$}
     \end{center}
 
 \subsection{Processo de primeira ordem com tempo morto}
 
+    O processo de primeira ordem com tempo morto é considerado um processo
+    clássico, e é bastante utilizado no estudo de controladores \acs{PID}. O
+    processo possui dinâmica definida pela constante de tempo $\tau$ e pelo
+    tempo morto $L$. Neste trabalho definimos o valor do tempo morto $L$ como 1.
+    
+    Assim como a maioria dos processos com tempo morto, pode ser considerado
+    fácil de identificar utilizando métodos de curva de reação e complicado para
+    controlar utilizando controladores \acs{PID} comuns.
+
+    \begin{equation}
+        G_p(s) = \frac{1}{(\tau s +1)}e^{-s}
+    \end{equation}
+    
+    Nos gráficos abaixo existe oscilação no tempo morto, devido à aproximação de
+    padè utilizada no software. Os graficos foram gerados para uma aproximação
+    de quinta ordem.
+
     \begin{center}
-        \includegraphics[width=\textwidth]{imagens/cap2_model8_1.eps}
-        \captionof{figure}{Processo de primeira ordem com tempo morto}
+        \includegraphics[width=0.75\textwidth]{imagens/cap2_model8_1.eps}
+        \captionof{figure}{Processo de primeira ordem com tempo morto - $\tau = 0.5$}
+    \end{center}
+
+    \begin{center}
+        \includegraphics[width=0.75\textwidth]{imagens/cap2_model8_2.eps}
+        \captionof{figure}{Processo de primeira ordem com tempo morto - $\tau = 2$}
+    \end{center}
+    
+    \begin{center}
+        \includegraphics[width=0.75\textwidth]{imagens/cap2_model8_3.eps}
+        \captionof{figure}{Processo de primeira ordem com tempo morto - $\tau = 10$}
     \end{center}
 
 \subsection{Processo de segunda ordem com tempo morto}
+    
+    O Processo de segunda ordem com tempo morto é similar ao de primeira ordem
+    com tempo morto, com diferenças de dinâmica dadas pela diferença de ordem
+    dos processos e pela constante de tempo $\tau$, que possui os seguintes valores,
+    típicamente: $0; 0,1; 0,2; 0,5; 2; 5; 10$.
+    
+    \begin{equation}
+        G_p(s) = \frac{1}{(\tau s +1)^2}e^{-s}
+    \end{equation}
 
     \begin{center}
-        \includegraphics[width=\textwidth]{imagens/cap2_model9_1.eps}
-        \captionof{figure}{Processo de segunda ordem com tempo morto}
+        \includegraphics[width=0.75\textwidth]{imagens/cap2_model9_1.eps}
+        \captionof{figure}{Processo de segunda ordem com tempo morto - $\tau = 2$}
+    \end{center}
+    
+    \begin{center}
+        \includegraphics[width=0.75\textwidth]{imagens/cap2_model9_2.eps}
+        \captionof{figure}{Processo de segunda ordem com tempo morto - $\tau = 5$}
     \end{center}
 
 \subsection{Processo com características dinâmicas assimétricas}
-
+    
+    O processo com características dinâmicas assimétricas possui duas características
+    dinâmicas distintas, sendo uma rápida, com ganho estático igual a 1 e constante
+    de tempo igual a 1, e outra lenta, com um ganho estático igual a 10.
+    
+    Este processo é dificil de controlar utilizando se controladores \acs{PID}
+    simples e identificando o processo com metodos de curva de reação, por conta das
+    características assimétricas do processo.
+    
+    \begin{equation}
+        G_p(s) = \frac{100}{(s+10)^2}\left ( \frac{1}{s+1} + \frac{0,5}{s+0,05} \right )
+    \end{equation}
+    
     \begin{center}
         \includegraphics[width=\textwidth]{imagens/cap2_model10_1.eps}
         \captionof{figure}{Processo com características dinâmicas assimétricas}
     \end{center}
 
 \subsection{Processo condicionalmente estável}
-
+    
+    O processo condicionalmente estável pode se comportar como um processo estável
+    ou instável, dependendo do ajuste do ponto de operação dos controladores.
+    
+    \begin{equation}
+        G_p(s) = \frac{(s+6)^2}{s(s+1)^2 (s+36)}
+    \end{equation}
+    
     \begin{center}
         \includegraphics[width=\textwidth]{imagens/cap2_model11_1.eps}
         \captionof{figure}{Processo condicionalmente estável}
@@ -187,20 +274,57 @@ do aluno que utiliza-se deste software como ferramenta de estudo dos controlador
 
 \subsection{Processo oscilatório}
 
+    O processo oscilatório é geralmente interessante para o controle \acs{PID}.
+    Considerando-se o valor de $zeta$ igual a $0$ ou $1$, e o valor de $\omega _0$
+    igual a $1$, $2$, $5$ ou $10$, tipicamente.
+
+    \begin{equation}
+        G_p(s) = \frac{\omega _0^2}{(s+1)(s^2+2\zeta \omega _0 s+\omega _0^2)}
+    \end{equation}
+    
+    As figuras abaixo mostram o comportamento do processo para $\zeta = 1$,
+    variando-se o valor de $\omega _0$:
+    
     \begin{center}
-        \includegraphics[width=\textwidth]{imagens/cap2_model12_1.eps}
-        \captionof{figure}{Processo oscilatório}
+        \includegraphics[width=0.75\textwidth]{imagens/cap2_model12_1.eps}
+        \captionof{figure}{Processo oscilatório - $\omega _0 = 1$}
+    \end{center}
+    
+    \begin{center}
+        \includegraphics[width=0.75\textwidth]{imagens/cap2_model12_2.eps}
+        \captionof{figure}{Processo oscilatório - $\omega _0 = 2$}
+    \end{center}
+    
+    \begin{center}
+        \includegraphics[width=0.75\textwidth]{imagens/cap2_model12_3.eps}
+        \captionof{figure}{Processo oscilatório - $\omega _0 = 10$}
     \end{center}
 
 \subsection{Processo instável}
-
+    
+    O processo instável é dificil de controlar utilizando-se controladores \ac{PID}
+    comuns e até mesmo de se identificar utilizando-se os métodos por curva de
+    reação, pela sua característica de instabilidade.
+    
+    \begin{equation}
+        G_p(s) = \frac{1}{s^2 - 1}
+    \end{equation}
+    
     \begin{center}
         \includegraphics[width=\textwidth]{imagens/cap2_model13_1.eps}
         \captionof{figure}{Processo instável}
     \end{center}
 
 \subsection{Processo de primeira ordem mais tempo morto com a presença de integrador}
-
+    
+    O processo de primeira ordem mais tempo morto com a presença de integrador é
+    similar ao processo de primeira ordem mais tempo morto, mas possui um polo
+    na origem, dificultando o controle do processo.
+    
+    \begin{equation}
+        G_p(s) = \frac{1}{s(\tau s + 1)}e^{-s}
+    \end{equation}
+    
     \begin{center}
         \includegraphics[width=\textwidth]{imagens/cap2_model14_1.eps}
         \captionof{figure}{Processo de primeira ordem mais tempo morto com a presença de integrador}
@@ -208,4 +332,8 @@ do aluno que utiliza-se deste software como ferramenta de estudo dos controlador
 
 \section{Conclusões parciais}
 
-    TODO.
+    Uma quantidade considerável de processos pode ser controlada com as ferramentas
+    disponíveis no software produzido por este trabalho, e, mesmo para os processos
+    qua não podem ser controlados, a interação com o software proporciona um melhor
+    aprendizado e uma melhor compreensão dos conceitos do controlador \ac{PID}
+    por parte dos alunos/usuários.
