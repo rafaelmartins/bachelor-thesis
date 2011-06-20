@@ -24,6 +24,9 @@ TEX_FILES = \
 SCRIPTS = \
 	cap2.py
 
+IMAGES_PNG = \
+	cap4-pidsim_home
+
 .PHONY: all
 all: $(MAIN).pdf
 
@@ -46,8 +49,16 @@ $(MAIN).pdf: $(addsuffix .tex, $(TEX_FILES)) $(MAIN).bib
 $(MAIN).bbl: $(MAIN).bib $(addsuffix .aux, $(TEX_FILES))
 	bibtex $(MAIN) || [[ -f $(MAIN).bbl ]]
 
+imagens/%.eps: imagens_raw/%.png
+	convert $< $@
+
+.PHONY: all_images
+all_images: $(addsuffix .eps, $(addprefix imagens/, $(IMAGES_PNG)))
+
 .PHONY: images
 images:
 	for i in $(SCRIPTS); do python scripts/$${i}; done
 	touch $(MAIN).tex
 	$(MAKE) all
+
+
