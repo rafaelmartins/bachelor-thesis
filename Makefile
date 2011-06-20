@@ -35,7 +35,7 @@ clean:
 view: all
 	evince $(MAIN).pdf
 
-$(MAIN).pdf: $(addsuffix .tex, $(TEX_FILES))
+$(MAIN).pdf: $(addsuffix .tex, $(TEX_FILES)) $(MAIN).bib
 	latex $(MAIN)
 	latex $(MAIN)
 	$(MAKE) $(MAIN).bbl

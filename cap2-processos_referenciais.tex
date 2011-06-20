@@ -1,20 +1,56 @@
 \chapter{Apresentação dos processos referenciais industriais
     \label{cap:processos-referenciais}}
 
+\section{Introdução}
+
 Neste capítulo são apresentados os 14 processos referenciais utilizados
-como base para o trabalho.
+como base para este trabalho. Estes processos referenciais são capazes de se
+aproximar de uma grande quantidade dos processos reais encontrados na indústria,
+sendo interessantes para o estudo e até mesmo para a sintonia dos controladores
+encontrados nas plantas industriais. Estes processos já foram amplamente destacados
+na literatura \cite{Isermann} \cite{AstromHagglund}.
+
+Vale ressaltar que, como se trata de um projeto didático, nem todos os processos
+conseguem ser identificados e controlados utilizando-se os métodos propostos
+neste trabalho, e que a análise da eficiência dos métodos faz parte do aprendizado
+do aluno que utiliza-se deste software como ferramenta de estudo dos controladores
+\acs{PID}.
 
 \section{Processos referenciais industriais}
 
 \subsection{Processo de primeira ordem}
-
+    
+    O processo de primeira ordem é o mais simples de todo, sendo bastante encontrado
+    nas plantas industriais. É capaz de representar uma boa quantidade de motores,
+    entre outros processos.
+    
+    Devido às suas caracteristicas dinâmicas (definidas pelo ganho estático $k$ e
+    pela constante de tempo $\tau$), pelo seu curto tempo de subida, este processo
+    é dificil de se identificar através de métodos que utilizem a curva de reação.
+    
+    \begin{equation}
+        G_p(s) = \frac{k}{(1+\tau s)}
+    \end{equation}
+    
     \begin{center}
         \includegraphics[width=\textwidth]{imagens/cap2_model1_1.eps}
         \captionof{figure}{Processo de primeira ordem}
     \end{center}
 
 \subsection{Processo de segunda ordem}
-
+    
+    O processo de segunda ordem é também bastante difundido na industria. Possui
+    características dinâmicas definidas pelo ganho estático $k$ e os tempos $T_1$
+    e $T_2$.
+    
+    Por não apresentar um crescimento monotônico, este processo é mais facil de ser
+    identificado a partir dos métodos de identificação utilizando a curva de reação
+    do que o processo referencial de primeira ordem.
+    
+    \begin{equation}
+        G_p(s) = \frac{k}{(1+T_1 s)(1+T_2 s)}
+    \end{equation}
+    
     \begin{center}
         \includegraphics[width=\textwidth]{imagens/cap2_model2_1.eps}
         \captionof{figure}{Processo de segunda ordem}
@@ -22,13 +58,38 @@ como base para o trabalho.
 
 \subsection{Processo de segunda ordem de fase não-mínima}
 
+    O processo de segunda ordem de fase não-minima tem uma dinâmica diferente dos
+    outros processos já apresentados. Este processo apresenta resposta inversa à
+    entrada, quando recebendo um sinal em forma de degrau, até um certo limite,
+    passando a rastrear o sinal de entrada (referência).
+    
+    Não apresenta grandes dificuldades para a identificação utilizando os métodos
+    de identificação por curva de reação, dependendo dos parâmetros do processo,
+    que são o ganho estático $k$ e os tempos $T_1$ e $T_2$.
+
+    \begin{equation}
+        G_p(s) = \frac{k(1-T_1 s)}{(1+T_1 s)(1+T_2 s)}
+    \end{equation}
+
     \begin{center}
         \includegraphics[width=\textwidth]{imagens/cap2_model3_1.eps}
         \captionof{figure}{Processo de segunda ordem de fase não-mínima}
     \end{center}
 
 \subsection{Processo de terceira ordem com tempo morto ajustável}
-
+    
+    O processo de terceira ordem pode assumir várias dinâmicas diferentes, dependendo
+    dos parâmetros do sistema, que são o ganho estático $k$, os tempos $T_1$, $T_2$,
+    $T_3$ e $T_4$ e o tempo morto $T_t$.
+    
+    Processos com tempo morto tendem a ser mais faceis de identificar utilizando-se
+    os metodos de identificação através da curva de reação, porém são mais dificeis
+    de se controlar com controladores \acs{PID} convencionais.
+    
+    \begin{equation}
+        G_p(s) = \frac{k(1+T_4 s)}{(1+T_1 s)(1+T_2 s)(1+T_3 s)} e^{-T_t s}
+    \end{equation}
+    
     \begin{center}
         \includegraphics[width=\textwidth]{imagens/cap2_model4_1.eps}
         \captionof{figure}{Processo de terceira ordem com tempo morto ajustável}
@@ -36,16 +97,57 @@ como base para o trabalho.
 
 \subsection{Processo de pólos múltiplos e iguais}
 
+    O processo de pólos múltiplos e iguais possui dinâmica variável, dependendo
+    do parâmetro $n$, que representa a ordem do sistema.
+    
+    O aumento da ordem do sistema tende a facilitar a identificação através dos
+    métodos de identificação por curva de reação.
+    
+    Os valores de $n$ variam de 1 a 4, tipicamente.
+    
+    \begin{equation}
+        G_p(s) = \frac{1}{(s+1)^n}
+    \end{equation}
+
     \begin{center}
-        \includegraphics[width=\textwidth]{imagens/cap2_model5_1.eps}
-        \captionof{figure}{Processo de pólos múltiplos e iguais}
+        \includegraphics[width=0.75\textwidth]{imagens/cap2_model5_1.eps}
+        \captionof{figure}{Processo de pólos múltiplos e iguais - $n = 1$}
+    \end{center}
+    
+    \begin{center}
+        \includegraphics[width=0.75\textwidth]{imagens/cap2_model5_2.eps}
+        \captionof{figure}{Processo de pólos múltiplos e iguais - $n = 2$}
+    \end{center}
+    
+    \begin{center}
+        \includegraphics[width=0.75\textwidth]{imagens/cap2_model5_3.eps}
+        \captionof{figure}{Processo de pólos múltiplos e iguais - $n = 3$}
+    \end{center}
+    
+    \begin{center}
+        \includegraphics[width=0.75\textwidth]{imagens/cap2_model5_4.eps}
+        \captionof{figure}{Processo de pólos múltiplos e iguais - $n = 4$}
     \end{center}
 
 \subsection{Processo de quarta ordem}
+    
+    O processo de quarta ordem tem dinâmica definida pelo parametro $\alpha$,
+    sendo facilmente controlavel para valores pequenos de $\alpha$.
+    
+    Para $\alpha = 1$, este processo se comporta como o anterior, para $n = 4$.
+    
+    \begin{equation}
+        G_p(s) = \frac{1}{(s+1)(\alpha s+1)(\alpha ^2 s+1)(\alpha ^3 s+1)}
+    \end{equation}
 
     \begin{center}
-        \includegraphics[width=\textwidth]{imagens/cap2_model6_1.eps}
-        \captionof{figure}{Processo de quarta ordem}
+        \includegraphics[width=0.75\textwidth]{imagens/cap2_model6_1.eps}
+        \captionof{figure}{Processo de quarta ordem - $\alpha = 0.2$}
+    \end{center}
+    
+    \begin{center}
+        \includegraphics[width=0.75\textwidth]{imagens/cap2_model6_2.eps}
+        \captionof{figure}{Processo de quarta ordem - $\alpha = 0.5$}
     \end{center}
 
 \subsection{Processo com três pólos iguais e zero no semi-plano direito}
