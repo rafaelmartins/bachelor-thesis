@@ -1,3 +1,230 @@
 \chapter{Documentação da \acs{API} do software}
 
-    TODO.
+    Este capítulo mostra a documentação da \ac{API} dos 3 pacotes de
+    software desenvolvidos para o projeto.
+
+
+\section{pidsim.core}
+
+    Pacote principal do software, com toda a implementação básica das 
+    funcionalidades do software.
+
+\subsection{pidsim.core.types.Polynomial}
+
+    \begin{verbatim}
+Polynomial(args)
+    \end{verbatim}
+
+    Classe que representa o tipo de dados Polinômio, baseado em listas
+    do Python. Suporta soma, subtração, multiplicação (por outro polinômio
+    ou por um numero inteiro) e divisão.
+    
+    Exemplo de uso:
+
+    \begin{verbatim}
+>>> a = Polynomial([1, 2, 3])
+>>> b = Polynomial([2, 3, 4])
+>>> print a + b
+3x^2 + 5x + 7
+    \end{verbatim}
+    
+\subsection{pidsim.core.types.Matrix}
+
+    \begin{verbatim}
+Matrix(args)
+    \end{verbatim}
+
+    Classe que implementa o tipo de dados Matriz, baseado em listas do
+    Python. O objeto matriz é uma lista de listas e posssui 2 propriedades:
+    \textit{cols} (número de colunas) e \textit{rows} (número de linhas).
+    
+    Suporta soma, subtração, multiplicação (por outra matriz ou por um
+    número inteiro), transposição e acesso direto a linhas e colunas.
+    
+    Exemplo de uso:
+    
+    \begin{verbatim}
+>>> a = Matrix([
+...     [1, 2, 3],
+...     [2, 3, 4],
+...     [3, 4, 5],
+... ])
+>>>
+>>> print a
+1    2    3
+2    3    4
+3    4    5
+>>>
+>>> a.rows
+3
+>>> a.cols
+3
+>>> print a(1)
+2    3    4
+>>> print a(1, 1)
+3
+    \end{verbatim}
+
+\subsection{pidsim.core.types.TransferFunction}
+
+    \begin{verbatim}
+TransferFunction(num, den)
+    \end{verbatim}
+
+    Classe que implementa o tipo de dados Função de Transferencia, baseado
+    no tipo de dados Polinômio. O objeto função de transferencia posssui
+    2 propriedades: \textit{num} (numerador) e \textit{den} (denominador).
+    
+    Suporta soma, subtração, multiplicação (por outra função ou por um
+    número inteiro), divisão por um número inteiro, simplificação e
+    \textit{feedback} com ganho unitário.
+    
+    Exemplo de uso:
+    
+    \begin{verbatim}
+>>> a = TransferFunction([1], [1, 2, 3])
+>>> b = TransferFunction([1], [2, 3, 4])
+>>> c = a * b
+>>> print c
+Transfer Function:
+
+              1               
+------------------------------
+2s^4 + 7s^3 + 16s^2 + 17s + 12
+    \end{verbatim}
+
+\subsection{pidsim.core.types.StateSpace}
+
+    \begin{verbatim}
+StateSpace(a_or_tf, b=None, c=None, d=None)
+    \end{verbatim}
+
+    Classe que implementa o tipo de dados Espaço de Estados, baseado
+    nos tipos de dados Função de Transferencia e Matriz. O objeto função
+    de transferencia posssui 4 propriedades: \textit{a}, \textit{b},
+    \textit{c} e \textit{d}.
+    
+    Se o primeiro argumento for uma função de transferência, será transformado
+    automaticamente em um modelo em espaço de estados durante a criação do
+    objeto. Funcionalidade baseada na função \textit{tf2ss} do GNU Octave
+    (careçe de citação) que é parte do \textit{Octave Control Systems Toolbox}.
+    
+    Exemplo de uso:
+    
+    \begin{verbatim}
+>>> a = TransferFunction([1], [1,2,3])
+>>> b = StateSpace(a)
+>>> print b
+State-Space model:
+
+Matrix A:
+0   1   
+-3.0    -2.0    
+
+Matrix B:
+0   
+1   
+
+Matrix C:
+1.0 0.0 
+
+Matrix D:
+0.0 
+    \end{verbatim}
+
+\subsection{pidsim.core.discretization.Euler}
+
+    \begin{verbatim}
+t, y = Euler(g, sample_time, total_time)
+    \end{verbatim}
+
+    Função que implementa a discretização de funções de transferência,
+    utilizando o método de Euler.
+    
+    Recebe uma função de transferência, o tempo de amostragem e o tempo
+    total.
+
+    Retorna uma tupla de 2 vetores, que são o vetor dos tempos e das amplitudes,
+    respectivamente.
+
+\subsection{pidsim.core.discretization.RungeKutta2}
+
+    \begin{verbatim}
+t, y = RungeKutta2(g, sample_time, total_time)
+    \end{verbatim}
+    
+    Função que implementa a discretização de funções de transferência,
+    utilizando o método de RungeKutta de $2^a$ ordem.
+    
+    Recebe uma função de transferência, o tempo de amostragem e o tempo
+    total.
+    
+    Retorna uma tupla de 2 vetores, que são o vetor dos tempos e das amplitudes,
+    respectivamente.
+
+\subsection{pidsim.core.discretization.RungeKutta3}
+
+    \begin{verbatim}
+t, y = RungeKutta3(g, sample_time, total_time)
+    \end{verbatim}
+    
+    Função que implementa a discretização de funções de transferência,
+    utilizando o método de RungeKutta de $3^a$.
+    
+    Recebe uma função de transferência, o tempo de amostragem e o tempo
+    total.
+    
+    Retorna uma tupla de 2 vetores, que são o vetor dos tempos e das amplitudes,
+    respectivamente.
+
+\subsection{pidsim.core.discretization.RungeKutta4}
+
+    \begin{verbatim}
+t, y = RungeKutta4(g, sample_time, total_time)
+    \end{verbatim}
+    
+    Função que implementa a discretização de funções de transferência,
+    utilizando o método de RungeKutta de $4^a$.
+    
+    Recebe uma função de transferência, o tempo de amostragem e o tempo
+    total.
+    
+    Retorna uma tupla de 2 vetores, que são o vetor dos tempos e das amplitudes,
+    respectivamente.
+
+\subsection{pidsim.core.error.ControlSystemsError}
+
+    \begin{verbatim}
+raise ControlSystemsError(error_message)
+    \end{verbatim}
+    
+    Função que implementa a exceção básica que é provocada pelo software.
+    
+    Herda todos os parametros e atributos da exceção padrão do Python.
+
+\subsection{pidsim.core.helpers.get\_time\_near}
+
+    \begin{verbatim}
+t = get_time_near(t, y, point)
+    \end{verbatim}
+    
+    Função que retorna o tempo '$t$' do ponto mais próximo ao ponto
+    desejado '$point$', presente nos vetores '$t$' (tempos) e '$y$'
+    (amplitudes).
+    
+\subsection{pidsim.core.pade.Pade\{1,5\}}
+
+    \begin{verbatim}
+g = Pade1(t)
+g = Pade2(t)
+g = Pade3(t)
+g = Pade4(t)
+g = Pade5(t)
+    \end{verbatim}
+    
+    Funções que implementam a aproximação de Padè, para $1^a$, $2^a$, $3^a$,
+    $4^a$ e $5^a$ ordens.
+    
+    Recebem um tempo de atraso de transporte desejado e retornam uma
+    função de transferencia, para ser multiplicada com a função de transferencia
+    original.
