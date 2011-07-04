@@ -22,11 +22,13 @@ do aluno que utiliza-se deste software como ferramenta de estudo dos controlador
     
     O processo de primeira ordem é o mais simples de todo, sendo bastante encontrado
     nas plantas industriais. É capaz de representar uma boa quantidade de motores,
-    entre outros processos.
+    pequenos entre outros processos.
     
     Devido às suas caracteristicas dinâmicas (definidas pelo ganho estático $k$ e
     pela constante de tempo $\tau$), pelo seu curto tempo de subida, este processo
     é dificil de se identificar através de métodos que utilizem a curva de reação.
+    A resposta ao degrau para o Processo de primeira ordem encontra-se na figura
+    \ref{cap2_1}
     
     \begin{equation}
         G_p(s) = \frac{k}{(1+\tau s)}
@@ -35,17 +37,19 @@ do aluno que utiliza-se deste software como ferramenta de estudo dos controlador
     \begin{center}
         \includegraphics[width=\textwidth]{imagens/cap2_model1_1.eps}
         \captionof{figure}{Processo de primeira ordem}
+	\label{cap2_1}
     \end{center}
 
 \subsection{Processo de segunda ordem}
     
     O processo de segunda ordem é também bastante difundido na industria. Possui
-    características dinâmicas definidas pelo ganho estático $k$ e os tempos $T_1$
-    e $T_2$.
+    características dinâmicas definidas pelo ganho estático $k$ e as constantes de
+    tempo $T_1$ e $T_2$.
     
-    Por não apresentar um crescimento monotônico, este processo é mais facil de ser
-    identificado a partir dos métodos de identificação utilizando a curva de reação
-    do que o processo referencial de primeira ordem.
+    Este processo é mais facil de servidentificado a partir dos métodos de
+    identificação utilizando a curva de reação do que o processo referencial de
+    primeira ordem. A resposta ao degrau para o Processo de segunda ordem pode
+    ser vista na figura \ref{cap2_2}
     
     \begin{equation}
         G_p(s) = \frac{k}{(1+T_1 s)(1+T_2 s)}
@@ -54,6 +58,7 @@ do aluno que utiliza-se deste software como ferramenta de estudo dos controlador
     \begin{center}
         \includegraphics[width=\textwidth]{imagens/cap2_model2_1.eps}
         \captionof{figure}{Processo de segunda ordem}
+	\label{cap2_2}
     \end{center}
 
 \subsection{Processo de segunda ordem de fase não-mínima}
@@ -61,11 +66,14 @@ do aluno que utiliza-se deste software como ferramenta de estudo dos controlador
     O processo de segunda ordem de fase não-minima tem uma dinâmica diferente dos
     outros processos já apresentados. Este processo apresenta resposta inversa à
     entrada, quando recebendo um sinal em forma de degrau, até um certo limite,
-    passando a rastrear o sinal de entrada (referência).
+    passando a rastrear o sinal de entrada (referência). A fase não-mínima é
+    determinada pelo zero no semiplano da direita.
     
     Não apresenta grandes dificuldades para a identificação utilizando os métodos
     de identificação por curva de reação, dependendo dos parâmetros do processo,
-    que são o ganho estático $k$ e os tempos $T_1$ e $T_2$.
+    que são o ganho estático $k$ e as constantes de tempo $T_1$ e $T_2$. A resposta
+    ao degrau para o Processo de segunda ordem de fase não-mínima está na figura
+    \ref{cap2_3}.
 
     \begin{equation}
         G_p(s) = \frac{k(1-T_1 s)}{(1+T_1 s)(1+T_2 s)}
@@ -74,6 +82,7 @@ do aluno que utiliza-se deste software como ferramenta de estudo dos controlador
     \begin{center}
         \includegraphics[width=\textwidth]{imagens/cap2_model3_1.eps}
         \captionof{figure}{Processo de segunda ordem de fase não-mínima}
+	\label{cap2_3}
     \end{center}
 
 \subsection{Processo de terceira ordem com tempo morto ajustável}

@@ -19,7 +19,7 @@ TEX_FILES = \
 	cap4-software \
 	cap5-conclusoes \
 	anexo1-metodos_numericos \
-	anexo2-modelagem_uml
+	anexo2-documentacao_da_api
 
 SCRIPTS = \
 	cap2.py
