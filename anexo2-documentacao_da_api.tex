@@ -228,3 +228,65 @@ g = Pade5(t)
     Recebem um tempo de atraso de transporte desejado e retornam uma
     função de transferencia, para ser multiplicada com a função de transferencia
     original.
+
+\subsection{pidsim.core.pid.identification}
+    
+    Módulo Python que implementa os métodos de identificação de processos.
+    
+    \subsubsection{pidsim.core.pid.identification.IdentificationMethod}
+        
+        \begin{verbatim}
+IdentificationMethod(t, y)
+        \end{verbatim}
+        
+        Classe base, herdada pelas outras classes, que implementam as
+        características especificas de cada método.
+        
+        \textit{t} é o vetor dos tempos e \textit{y} é o vetor das amplitudes.
+        Ambos são retornados pelo método de discretização escolhido pelo
+        usuário.
+    
+    \subsubsection{pidsim.core.pid.identification.*}
+        
+        \begin{verbatim}
+Alfaro(t, y)
+Broida(t, y)
+ChenYang(t, y)
+Ho(t, y)
+Smith(t, y)
+Viteckova(t, y)
+        \end{verbatim}
+        
+        Sub-classes da classe \textbf{pidsim.core.pid.identification.IdentificationMethod}.
+        Implementam cada método de identificação suportado pelo software.
+
+\subsection{pidsim.core.pid.tuning}
+    
+    Módulo Python que implementa os métodos de sintonia de controladores
+    \acs{PID}.
+    
+    \subsubsection{pidsim.core.pid.identification.TuningMethod}
+        
+        \begin{verbatim}
+TuningMethod(t, y, i_method)
+        \end{verbatim}
+        
+        Classe base, herdada pelas outras classes, que implementam as
+        características especificas de cada método de sintonia.
+        
+        \textit{t} é o vetor dos tempos, \textit{y} é o vetor das amplitudes.
+        Ambos são retornados pelo método de discretização escolhido pelo
+        usuário. \textit{i\_method} é o metodo de identificação desejado
+        para simular o controlador
+    
+    \subsubsection{pidsim.core.pid.identification.*}
+        
+        \begin{verbatim}
+ZieglerNichols(t, y, i_method)
+CohenCoon(t, y, i_method)
+ChienHronesReswick0(t, y, i_method)
+ChienHronesReswick20(t, y, i_method)
+        \end{verbatim}
+        
+        Sub-classes da classe \textbf{pidsim.core.pid.identification.TuningMethod}.
+        Implementam cada método de sintonia \acs{PID} suportado pelo software.
