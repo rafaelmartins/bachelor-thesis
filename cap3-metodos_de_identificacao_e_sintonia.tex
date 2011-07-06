@@ -108,7 +108,37 @@ PID & $Kp = 0.95\frac{\tau}{KL}$ & $Ti = 1.4\tau$ & $Td = 0.47L$ \\
 
 \section{Métodos heurísticos para identificação de controladores PID}
 
-    TODO.
+    Os métodos heurístidos para identificação de controladores \acs{PID}
+    utilizando-se o modelo \acs{FODT} são geralmente baseados em 2 pontos,
+    atrelados ao locao onde a curva do gráfico da resposta ao degrau em
+    malha aberta alcança certo nivel em relação à amplitude máxima da curva
+    ou ao ponto de estabilização do sistema.
+    
+    Os dois pontos do método de identificação definem uma reta, conhecida
+    como reta de sintonia. A distancia do ponto onde a reta de sintonia
+    toca o eixo do tempo até sua origem é o tempo morto $L$. O valor de $\tau$
+    é a constante de tempo, medida da projeção do extremo da reta de sintonia
+    alinhado com o ponto máximo da curva até o ponto onde a reta de sintonia
+    toca o eixo dos tempos.
+    
+    Segue uma tabela com os pontos utilizados por cada método de identificação.
+    
+    \begin{center}
+        \captionof{table}{Constantes para os métodos de identificação}
+        \begin{tabular}{l l l}
+Método & $\%p1(t1)$ & $\%p2(t2)$ \\
+\hline
+Alfaro                    & 25.0 & 75.0 \\
+Broida                    & 28.0 & 40.0 \\
+Chen \& Yang              & 33.0 & 67.0 \\
+Ho \textit{et al.}        & 35.0 & 85.0 \\
+Smith                     & 28.3 & 63.2 \\
+Vitecková \textit{et al.} & 33.0 & 70.0 \\
+        \end{tabular}
+    \end{center}
+    
+    No software do projeto, os pontos e a reta são definidos geometricamente,
+    de acordo com a tabela.    
 
 \section{Conclusões parciais}
 

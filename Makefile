@@ -23,11 +23,15 @@ TEX_FILES = \
 
 SCRIPTS = \
 	cap2.py \
-	cap3.py
+	cap3.py \
+	cap4.py
 
 IMAGES_PNG = \
 	cap4-pidsim_home \
-	cap4-pacotes
+	cap4-pacotes \
+	cap4-model5-inicio \
+	cap4-model5-valores \
+	cap4-model5-valores_manual
 
 .PHONY: all
 all: $(MAIN).pdf

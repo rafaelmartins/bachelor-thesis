@@ -199,6 +199,81 @@ de programação utilizada no projeto do software.
 
     O software possui suporte a internacionalização. Utilizando se o pacote Python Babel. Atualmente está
     implementado o suporte ao Inglês e ao Português.
+    
+    \subsection{Exemplo - Processo de pólos múltiplos e iguais}
+    
+        O seguinte exemplo ilustra as funcionalidades disponíveis no software,
+        utilizando o processo de pólos múltiplos e iguais como caso de uso.
+        
+        Segue a tela inicial do software, após selecionado o processo de
+        pólos múltiplos e iguais (processo 5).
+        
+        \begin{center}
+            \includegraphics[width=0.8\textwidth]{imagens/cap4-model5-inicio.eps}
+            \captionof{figure}{Tela inicial do processo de pólos múltiplos e iguais}
+        \end{center}
+        
+        Para este exemplo, serão utilizados os seguintes valores de parâmetros:
+        
+        \begin{itemize}
+            \item $n = 4$ - Processo de quarta ordem
+            \item Método numérico para discretização: Runge-Kutta de quarta ordem
+            \item Método de identificação para o controlador: Smith
+            \item Método de sintonia para o controlador: Ziegler-Nichols
+            \item Tempo de amostragem = 0.01s
+            \item Tempo total = 20s
+        \end{itemize}
+        
+        Um gráfico com estes parâmetros possuirá 2 mil pontos.
+        
+        O formulário preenchido pode ser visto na imagem abaixo.
+        
+        \begin{center}
+            \includegraphics[width=0.8\textwidth]{imagens/cap4-model5-valores.eps}
+            \captionof{figure}{Valores de parâmetros utilizados para a simulação de exemplo}
+        \end{center}
+        
+        Após configurar os parâmetros, e clicar no botão "Plotar!", o software
+        irá realizar a identificação do sistema. A figura abaixo representa o
+        gráfico da identificação.
+        
+        \begin{center}
+            \includegraphics[width=0.8\textwidth]{imagens/cap4_model5_1.eps}
+            \captionof{figure}{Gráfico da identificação do processo de exemplo}
+        \end{center}
+        
+        Para os parâmetros selecionados, os ganhos identificados para o
+        controlador são: $kp=1.6$; $ki=0.4$ e $kd=1.5$.
+        
+        Após identificado o processo, é possível simular o controlador em
+        operação, utilizando-se o menu que fica ao lado do botão "Plotar!".
+        Vide gráfico resultante na figura abaixo.
+
+        \begin{center}
+            \includegraphics[width=0.8\textwidth]{imagens/cap4_model5_2.eps}
+            \captionof{figure}{Gráfico da simulação do controlador para o processo de exemplo}
+        \end{center}
+        
+        É possivel também alterar os valores dos ganhos $kp$, $ki$ e $kd$ manualmente.
+        Este exemplo utilizará os ganhos: $kp=2.0$; $ki=0.9$ e $kd=1.4$,
+        conforme a figura a seguir.
+        
+        \begin{center}
+            \includegraphics[width=0.8\textwidth]{imagens/cap4-model5-valores_manual.eps}
+            \captionof{figure}{Valores dos ganhos do controlador para o processo de exemplo, escolhidos manualmente}
+        \end{center}
+        
+        Executando a simulação para o controlador com os novos ganhos, escolhidos manualmente
+        obtemos o seguinte gráfico:
+        
+        \begin{center}
+            \includegraphics[width=0.8\textwidth]{imagens/cap4_model5_3.eps}
+            \captionof{figure}{Gráfico da simulação do controlador para o processo de exemplo, com ganhos escolhidos manualmente}
+        \end{center}
+        
+        Com todos estes dados e gráficos, o estudante será capaz de avaliar o desempenho
+        do controlador, de acordo com os ganhos e métodos que desejar, até obter um
+        controlador bem sintonizado.
 
 \section{Conclusões parciais}
 
@@ -206,3 +281,7 @@ de programação utilizada no projeto do software.
     para o estudo da engenharia são plenamente factíveis, e que proporcionam, tanto
     aos desenvolvedores quanto aos usuários finais, um grande aprendizado da teoria
     utilizada na implementação do mesmo.
+
+    Da utilização deste software, conclui-se que existe uma enorme gama de variáveis
+    envolvidas na sintonia de um controlador \acs{PID}, e que um simulador com as
+    caracteristicas do mesmo é uma ferramenta importante para estudo.

@@ -7,8 +7,6 @@ from pidsim.core.discretization import Euler
 from pidsim.core.pid.identification import Smith
 from pidsim.models.models import index as models_index
 
-from subprocess import call
-
 import os
 
 plot_registry = {}

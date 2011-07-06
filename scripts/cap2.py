@@ -6,8 +6,6 @@ from matplotlib.figure import Figure
 from pidsim.core.discretization import Euler
 from pidsim.models.models import index as models_index
 
-from subprocess import call
-
 import os
 
 plot_registry = {}
