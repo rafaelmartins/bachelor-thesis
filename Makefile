@@ -22,10 +22,12 @@ TEX_FILES = \
 	anexo2-documentacao_da_api
 
 SCRIPTS = \
-	cap2.py
+	cap2.py \
+	cap3.py
 
 IMAGES_PNG = \
-	cap4-pidsim_home
+	cap4-pidsim_home \
+	cap4-pacotes
 
 .PHONY: all
 all: $(MAIN).pdf

@@ -16,7 +16,7 @@
     do processo.
 
     Os controladores \acs{PID} são capazes de compensar os 2 tipos de erros encontrados
-    nas plantas industriais: o erro de transiente, que é o erro encontrado nos momentos
+    nas plantas industriais: o erro de estado transitório, que é o erro encontrado nos momentos
     iniciais da operação da planta, e o erro de estado estacionário, que é o erro de
     ajuste de planta, ou seja, a saida da planta atingiu o nivel de saída esperado, de
     acordo com o ajuste da entrada da planta.
@@ -26,22 +26,25 @@
     de estabilidade e pela facilidade de sintonia, se utilizada uma abordagem prática
     para identificação da planta, que é um dos maiores problemas para os engenheiros.
 
-    Existem vários métodos de sintonia para controladores PID utilizados com grande
-    aceitação em processos industriais. Dentre estes, os mais utilizados são baseados na
-    resposta ao degrau: Ziegler \& Nichols, Cohen-Coon, López. Embora novos procedimentos
-    tenham sido desenvolvidos e venham ampliando sua aceitacao, os métodos tradicionais
-    ainda constituem marcos referenciais. Estas técnicas se baseiam em modelos identificados
-    para o processo controlado, que podem ser de primeira ordem a dois, três ou quatro
-    parâmetros, podendo também encontrar-se modelos de ordem superior. Os métodos mais
-    clássicos para a obtencao do modelo dinâmico de um sistema são a resposta ao degrau
-    e o método do ganho crítico, que conduzem, neste caso, a um modelo de primeira ordem
-    com três parâmetros a saber: o ganho estático do processo, o tempo morto e a constante 
-    de tempo do processo. Dentre os métodos de identificacao de sistemas, podem ser citados
-    os métodos de Relé, de Chen, de Ho \textit{et al.}, de Lee e Sung, de Yuwana e Seborg.
+    São vários os métodos de sintonia para controladores \acs{PID} utilizados em processos
+    industriais. Dentre estes, os metodos baseados na resposta ao degrau: Ziegler e Nichols,
+    Cohen-Coon e López são os mais utilizados. Estes métodos tradicionais são, até hoje,
+    referencia para o estudo dos controladores \ac{PID}, apesar do avanço e das novas
+    técnicas disponíveis atualmente.
 
-    TODO: Referencias
+    Os métodos mais clássicos para a obtenção do modelo dinâmico de um sistema, encontrados
+    na literatura, são o método do ganho crítico e a resposta ao degrau, que são capazes
+    de aproximar modelos de ordem maior ou igual a 2 de modelos de primeira ordem.
 
-    TODO: Expandir
+    Este trabalho possui um enfoque didatico, sendo desenvolvido para o uso em sala de aula,
+    em aulas de controle. Para isto, o software possui diversas características que estimulam
+    o desenvolvimento do aluno e o aprendizado do funcionamento de cada controlador e 
+    de cada processo.
+
+    O trabalho também faz intensivo uso de software livre, além de ter originado um software
+    livre, como resultado. O uso de software livre na engenharia é relativamente pequeno.
+    A maioria das soluções encontradas hoje são proprietárias. A linguagem Python, no entanto,
+    vem sendo utilizada no meio científico já a algum tempo \cite{5725235}.
 
 
 \section{Identicação do problema}

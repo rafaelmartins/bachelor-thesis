@@ -1,9 +1,11 @@
 \chapter{O software desenvolvido \label{cap:software}}
 
 Neste capítulo são apresentados aspectos práticos e construtivos do
-software desenvolvido.
+software desenvolvido, indo desde uma descrição básica da funcionalidade
+do sóftware, até alguns resultados práticos e caracteristicas da linguagem
+de programação utilizada no projeto do software.
 
-\section{Introdução}
+\section{Descrição do software}
 
     Este trabalho se baseia em um software, construido em linguagem Python
     e disponivel via \ac{WWW}. O software, batizado de \textbf{PIDSIM},
@@ -26,11 +28,29 @@ software desenvolvido.
     Há uma instância pública do software rodando no seguinte endereço: \\
     \url{http://pidsim.rafaelmartins.eng.br}
 
-    O código-fonte do software está disponível em repositórios \textbf{Mercurial}: \\
+    O código-fonte do software está disponível em repositórios do Sistema
+    de Controle de Versão Mercurial \cite{Mercurial}: \\
     \url{http://hg.rafaelmartins.eng.br/pidsim/}
 
-    O software está licenciado sob a licença \ac{GPL-2}, podendo ser redistribuido
+    O software está licenciado sob a licença \ac{GPL-2} \cite{GPL-2}, podendo ser redistribuido
     livremente, de acordo com os termos da licença.
+
+\section{A linguagem Python}
+
+    Durante a década passada, o Python \cite{Python} (uma linguagem linguagem interpretada
+    de alto-nivel) tornou-se o padrão de fato para a pesquisa científica
+    exploratória, interativa e voltada à computação \cite{5725235}.
+    
+    A linguagem Python é uma linguagem de alto-nível, orientada a objetos,
+    amplamente utilizada atualmente. É uma linguagem de uso geral, sendo
+    usada para os mais diversos fins, seja a criação de um \textit{website}
+    ou uma aplicação pra desktop, ou para a criação de um aplicativo científico
+    com calculos complexos.
+    
+    Python é uma linguagem interpretada, e pode ser usada interativamente.
+    Algumas pessoas podem assumir que isso limita o seu uso - por exemplo,
+    que uma linguagem interpretada possivelmente não será rápida o bastante
+    para programação científica -, mas isto não é verdade \cite{4160249}.
 
 \section{Arquitetura do software}
 
@@ -40,8 +60,13 @@ software desenvolvido.
     sido bem planejada.
 
     Levando se a facilidade de expansão em consideração, foi construida uma estrutura
-    modular para o software, dividindo-o em pacotes individuais, e com o minimo de
-    interdependência entre si.
+    modular para o software, dividindo-o em pacotes individuais, e com o minimo
+    possível de interdependência entre si.
+    
+    \begin{center}
+        \includegraphics[width=0.6\textwidth]{imagens/cap4-pacotes.eps}
+        \captionof{figure}{Dependencia entre os pacotes do software}
+    \end{center}
     
     O software foi dividido em 3 pacotes Python:
 
@@ -153,7 +178,9 @@ software desenvolvido.
         \subsection{pidsim.web}
             
             O pacote \textbf{pidsim.web} implementa a interface web, desenvolvida utilizando-se
-            o \textit{framework web} \textbf{Flask} e o toolkit de plotagem de gráficos \textbf{Matplotlib}.
+            o \textit{framework web} \textbf{Flask}, que é responsavel pela geração das páginas
+            WEB do software e o toolkit de plotagem de gráficos \textbf{Matplotlib}, que é
+            responsável pela geração dos gráficos.
 
             Apesar da facilidade em se implementar interfaces para o software, devido à arquitetura
             implementada, apenas a interface web está disponível no momento.
@@ -166,17 +193,16 @@ software desenvolvido.
     Uma imagem com a tela inicial do software pode ser vista abaixo:
     
     \begin{center}
-        \includegraphics[width=0.6\textwidth]{imagens/cap4-pidsim_home.eps}
+        \includegraphics[width=0.8\textwidth]{imagens/cap4-pidsim_home.eps}
         \captionof{figure}{Tela inicial do software}
     \end{center}
 
     O software possui suporte a internacionalização. Utilizando se o pacote Python Babel. Atualmente está
     implementado o suporte ao Inglês e ao Português.
 
-\section{A linguagem Python}
-
-    TODO.
-
 \section{Conclusões parciais}
 
-    TODO.
+    Do desenvolvimento deste software, conclui-se que soluções em software livre
+    para o estudo da engenharia são plenamente factíveis, e que proporcionam, tanto
+    aos desenvolvedores quanto aos usuários finais, um grande aprendizado da teoria
+    utilizada na implementação do mesmo.

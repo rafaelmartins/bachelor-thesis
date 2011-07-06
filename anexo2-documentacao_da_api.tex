@@ -12,8 +12,7 @@
 \subsection{pidsim.core.types.Polynomial}
 
     \begin{verbatim}
-Polynomial(args)
-    \end{verbatim}
+Polynomial(args)\end{verbatim}
 
     Classe que representa o tipo de dados Polinômio, baseado em listas
     do Python. Suporta soma, subtração, multiplicação (por outro polinômio
@@ -25,14 +24,12 @@ Polynomial(args)
 >>> a = Polynomial([1, 2, 3])
 >>> b = Polynomial([2, 3, 4])
 >>> print a + b
-3x^2 + 5x + 7
-    \end{verbatim}
+3x^2 + 5x + 7\end{verbatim}
     
 \subsection{pidsim.core.types.Matrix}
 
     \begin{verbatim}
-Matrix(args)
-    \end{verbatim}
+Matrix(args)\end{verbatim}
 
     Classe que implementa o tipo de dados Matriz, baseado em listas do
     Python. O objeto matriz é uma lista de listas e posssui 2 propriedades:
@@ -62,14 +59,12 @@ Matrix(args)
 >>> print a(1)
 2    3    4
 >>> print a(1, 1)
-3
-    \end{verbatim}
+3\end{verbatim}
 
 \subsection{pidsim.core.types.TransferFunction}
 
     \begin{verbatim}
-TransferFunction(num, den)
-    \end{verbatim}
+TransferFunction(num, den)\end{verbatim}
 
     Classe que implementa o tipo de dados Função de Transferencia, baseado
     no tipo de dados Polinômio. O objeto função de transferencia posssui
@@ -90,8 +85,7 @@ Transfer Function:
 
               1               
 ------------------------------
-2s^4 + 7s^3 + 16s^2 + 17s + 12
-    \end{verbatim}
+2s^4 + 7s^3 + 16s^2 + 17s + 12\end{verbatim}
 
 \subsection{pidsim.core.types.StateSpace}
 
@@ -129,14 +123,12 @@ Matrix C:
 1.0 0.0 
 
 Matrix D:
-0.0 
-    \end{verbatim}
+0.0\end{verbatim}
 
 \subsection{pidsim.core.discretization.Euler}
 
     \begin{verbatim}
-t, y = Euler(g, sample_time, total_time)
-    \end{verbatim}
+t, y = Euler(g, sample_time, total_time)\end{verbatim}
 
     Função que implementa a discretização de funções de transferência,
     utilizando o método de Euler.
@@ -150,8 +142,7 @@ t, y = Euler(g, sample_time, total_time)
 \subsection{pidsim.core.discretization.RungeKutta2}
 
     \begin{verbatim}
-t, y = RungeKutta2(g, sample_time, total_time)
-    \end{verbatim}
+t, y = RungeKutta2(g, sample_time, total_time)\end{verbatim}
     
     Função que implementa a discretização de funções de transferência,
     utilizando o método de RungeKutta de $2^a$ ordem.
@@ -165,8 +156,7 @@ t, y = RungeKutta2(g, sample_time, total_time)
 \subsection{pidsim.core.discretization.RungeKutta3}
 
     \begin{verbatim}
-t, y = RungeKutta3(g, sample_time, total_time)
-    \end{verbatim}
+t, y = RungeKutta3(g, sample_time, total_time)\end{verbatim}
     
     Função que implementa a discretização de funções de transferência,
     utilizando o método de RungeKutta de $3^a$.
@@ -180,8 +170,7 @@ t, y = RungeKutta3(g, sample_time, total_time)
 \subsection{pidsim.core.discretization.RungeKutta4}
 
     \begin{verbatim}
-t, y = RungeKutta4(g, sample_time, total_time)
-    \end{verbatim}
+t, y = RungeKutta4(g, sample_time, total_time)\end{verbatim}
     
     Função que implementa a discretização de funções de transferência,
     utilizando o método de RungeKutta de $4^a$.
@@ -195,8 +184,7 @@ t, y = RungeKutta4(g, sample_time, total_time)
 \subsection{pidsim.core.error.ControlSystemsError}
 
     \begin{verbatim}
-raise ControlSystemsError(error_message)
-    \end{verbatim}
+raise ControlSystemsError(error_message)\end{verbatim}
     
     Função que implementa a exceção básica que é provocada pelo software.
     
@@ -205,8 +193,7 @@ raise ControlSystemsError(error_message)
 \subsection{pidsim.core.helpers.get\_time\_near}
 
     \begin{verbatim}
-t = get_time_near(t, y, point)
-    \end{verbatim}
+t = get_time_near(t, y, point)\end{verbatim}
     
     Função que retorna o tempo '$t$' do ponto mais próximo ao ponto
     desejado '$point$', presente nos vetores '$t$' (tempos) e '$y$'
@@ -219,8 +206,7 @@ g = Pade1(t)
 g = Pade2(t)
 g = Pade3(t)
 g = Pade4(t)
-g = Pade5(t)
-    \end{verbatim}
+g = Pade5(t)\end{verbatim}
     
     Funções que implementam a aproximação de Padè, para $1^a$, $2^a$, $3^a$,
     $4^a$ e $5^a$ ordens.
@@ -236,8 +222,7 @@ g = Pade5(t)
     \subsubsection{pidsim.core.pid.identification.IdentificationMethod}
         
         \begin{verbatim}
-IdentificationMethod(t, y)
-        \end{verbatim}
+IdentificationMethod(t, y)\end{verbatim}
         
         Classe base, herdada pelas outras classes, que implementam as
         características especificas de cada método.
@@ -254,8 +239,7 @@ Broida(t, y)
 ChenYang(t, y)
 Ho(t, y)
 Smith(t, y)
-Viteckova(t, y)
-        \end{verbatim}
+Viteckova(t, y)\end{verbatim}
         
         Sub-classes da classe \textbf{pidsim.core.pid.identification.IdentificationMethod}.
         Implementam cada método de identificação suportado pelo software.
@@ -268,8 +252,7 @@ Viteckova(t, y)
     \subsubsection{pidsim.core.pid.identification.TuningMethod}
         
         \begin{verbatim}
-TuningMethod(t, y, i_method)
-        \end{verbatim}
+TuningMethod(t, y, i_method)\end{verbatim}
         
         Classe base, herdada pelas outras classes, que implementam as
         características especificas de cada método de sintonia.
@@ -285,8 +268,7 @@ TuningMethod(t, y, i_method)
 ZieglerNichols(t, y, i_method)
 CohenCoon(t, y, i_method)
 ChienHronesReswick0(t, y, i_method)
-ChienHronesReswick20(t, y, i_method)
-        \end{verbatim}
+ChienHronesReswick20(t, y, i_method)\end{verbatim}
         
         Sub-classes da classe \textbf{pidsim.core.pid.identification.TuningMethod}.
         Implementam cada método de sintonia \acs{PID} suportado pelo software.
