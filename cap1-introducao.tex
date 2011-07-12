@@ -9,9 +9,11 @@
 
     A habilidade dos controladores \ac{PI} e \ac{PID} para compensar a maioria dos processos
     industriais práticos resultou na larga aceitação dos mesmos nas aplicações industriais
-    \cite{Dwyer}.
+    \cite{Dwyer}. A maioria dos controladores utilizados na industria são do tipo
+    \acs{PID} \cite{astrom1984645}. Mais de 90\% das malhas de controle são \acs{PID}
+    \cite{astrom20011163}. 
 
-    Desde então os controladores industriais uma das partes mais importantes de qualquer
+    Desde então os controladores industriais são uma das partes mais importantes de qualquer
     planta industrial, garantindo a estabilidade da operação e fazendo valer as restrições
     do processo.
 
@@ -56,6 +58,13 @@
     As disciplinas de Controle Automático tem se tornado muito teoricas nos ultimos
     tempos. É dificil para um professor proporcionar experiências práticas para os
     alunos com o material atualmente disponível nas salas de aula das universidades.
+    
+    Questões concretas ligadas à automação e controle, tais como projetos de
+    controladores utilizando as diversas ferramentas analíticas disponíveis, sintonia de
+    controladores, compensação dinâmica, aspectos práticos de implementação de sistemas de
+    controle, novas técnicas de inteligência computacional aplicadas à automação e controle,
+    novas estruturas de controladores, para citar alguns, não são disponibilizados, na estrutura
+    curricular normal, para a formação dos alunos \cite{cobenge}.
 
     Os alunos dos cursos de Engenharia de Controle e Automação precisam ter uma
     visão prática dos problemas encontrados em uma planta industrial, para saberem
@@ -108,10 +117,12 @@
     rápida.
     
     O software é capaz de identificar um processo, a partir de algum dos
-    métodos de identificação de sistemas disponíveis (Alfaro, Bröida, Chen \& Yang,
-    Ho, Smith e Vitecková), sintonizar automaticamente um controlador \acs{PID},
+    métodos de identificação de sistemas disponíveis (Alfaro \cite{Alfaro2}, Bröida,
+    Chen \& Yang \cite{ChenYang}, Ho \cite{Ho}, Smith \cite{Smith} e Vitecková)
+    \cite{Viteckova}, sintonizar um controlador \acs{PID},
     utilizando algum dos métodos de sintonia de controladores disponível (Ziegler
-    \& Nichols, Cohen-Coon, Chien Hrones Reswick 0\%, Chien Hrones Reswick 20\%),
+    \& Nichols \cite{ZieglerNicholsAsme}, Cohen-Coon \cite{CohenCoon},
+    Chien Hrones Reswick 0\%, Chien Hrones Reswick 20\%),
     permitir a sintonia manual do controlador e simular o sistema com o controlador,
     utilizando a sintonia obtida, seja automaticamente ou manualmente.
     
