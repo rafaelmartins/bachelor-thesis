@@ -27,11 +27,13 @@ SCRIPTS = \
 	cap4.py
 
 IMAGES_PNG = \
+	cefet \
 	cap4-pidsim_home \
 	cap4-pacotes \
 	cap4-model5-inicio \
 	cap4-model5-valores \
 	cap4-model5-valores_manual
+
 
 .PHONY: all
 all: $(MAIN).pdf
@@ -44,7 +46,7 @@ clean:
 view: all
 	evince $(MAIN).pdf
 
-$(MAIN).pdf: $(addsuffix .tex, $(TEX_FILES)) $(MAIN).bib
+$(MAIN).pdf: $(addsuffix .tex, $(TEX_FILES)) cefet.cls $(MAIN).bib
 	latex $(MAIN)
 	latex $(MAIN)
 	$(MAKE) $(MAIN).bbl
