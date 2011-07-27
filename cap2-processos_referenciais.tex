@@ -24,9 +24,9 @@ do aluno que utiliza-se deste software como ferramenta de estudo dos controlador
     nas plantas industriais. É capaz de representar uma boa quantidade de motores,
     pequenos entre outros processos.
     
-    Devido às suas caracteristicas dinâmicas (definidas pelo ganho estático $k$ e
+    Devido às suas características dinâmicas (definidas pelo ganho estático $k$ e
     pela constante de tempo $\tau$), pelo seu curto tempo de subida, este processo
-    é dificil de se identificar através de métodos que utilizem a curva de reação.
+    é difícil de se identificar através de métodos que utilizem a curva de reação.
     A resposta ao degrau para o processo de primeira ordem encontra-se na figura
     \ref{cap2_1}
     
@@ -46,7 +46,7 @@ do aluno que utiliza-se deste software como ferramenta de estudo dos controlador
     características dinâmicas definidas pelo ganho estático $k$ e as constantes de
     tempo $T_1$ e $T_2$.
     
-    Este processo é mais facil de servidentificado a partir dos métodos de
+    Este processo é mais fácil de ser identificado a partir dos métodos de
     identificação utilizando a curva de reação do que o processo referencial de
     primeira ordem. A resposta ao degrau para o processo de segunda ordem pode
     ser vista na figura \ref{cap2_2}
@@ -91,8 +91,8 @@ do aluno que utiliza-se deste software como ferramenta de estudo dos controlador
     dos parâmetros do sistema, que são o ganho estático $k$, os tempos $T_1$, $T_2$,
     $T_3$ e $T_4$ e o tempo morto $T_t$.
     
-    Processos com tempo morto tendem a ser mais faceis de identificar utilizando-se
-    os metodos de identificação através da curva de reação, porém são mais dificeis
+    Processos com tempo morto tendem a ser mais fáceis de identificar utilizando-se
+    os métodos de identificação através da curva de reação, porém são mais difíceis
     de se controlar com controladores \acs{PID} convencionais, pois quanto maior
     o tempo morto, maior a razão de controlabilidade ($\alpha = \frac{L}{\tau}$).
     A resposta ao degrau para o processo de terceira ordem com tempo morto ajustável
@@ -108,9 +108,9 @@ do aluno que utiliza-se deste software como ferramenta de estudo dos controlador
         \label{cap2_4}
     \end{center}
 
-\subsection{Processo de pólos múltiplos e iguais}
+\subsection{Processo de polos múltiplos e iguais}
 
-    O processo de pólos múltiplos e iguais possui dinâmica variável, dependendo
+    O processo de polos múltiplos e iguais possui dinâmica variável, dependendo
     do parâmetro $n$, que representa a ordem do sistema.
     
     O aumento da ordem do sistema tende a facilitar a identificação através dos
@@ -126,32 +126,32 @@ do aluno que utiliza-se deste software como ferramenta de estudo dos controlador
 
     \begin{center}
         \includegraphics[width=0.75\textwidth]{imagens/cap2_model5_1.eps}
-        \captionof{figure}{Processo de pólos múltiplos e iguais - $n = 1$}
+        \captionof{figure}{Processo de polos múltiplos e iguais - $n = 1$}
         \label{cap2_5}
     \end{center}
     
     \begin{center}
         \includegraphics[width=0.75\textwidth]{imagens/cap2_model5_2.eps}
-        \captionof{figure}{Processo de pólos múltiplos e iguais - $n = 2$}
+        \captionof{figure}{Processo de polos múltiplos e iguais - $n = 2$}
         \label{cap2_6}
     \end{center}
     
     \begin{center}
         \includegraphics[width=0.75\textwidth]{imagens/cap2_model5_3.eps}
-        \captionof{figure}{Processo de pólos múltiplos e iguais - $n = 3$}
+        \captionof{figure}{Processo de polos múltiplos e iguais - $n = 3$}
         \label{cap2_7}
     \end{center}
     
     \begin{center}
         \includegraphics[width=0.75\textwidth]{imagens/cap2_model5_4.eps}
-        \captionof{figure}{Processo de pólos múltiplos e iguais - $n = 4$}
+        \captionof{figure}{Processo de polos múltiplos e iguais - $n = 4$}
         \label{cap2_8}
     \end{center}
 
 \subsection{Processo de quarta ordem}
     
-    O processo de quarta ordem tem dinâmica definida pelo parametro $\alpha$,
-    sendo facilmente controlavel para valores pequenos de $\alpha$, entre 0 e 1.
+    O processo de quarta ordem tem dinâmica definida pelo parâmetro $\alpha$,
+    sendo facilmente controlável para valores pequenos de $\alpha$, entre 0 e 1.
     
     Para $\alpha = 1$, este processo se comporta como o anterior, para $n = 4$.
     
@@ -174,15 +174,15 @@ do aluno que utiliza-se deste software como ferramenta de estudo dos controlador
         \label{cap2_10}
     \end{center}
 
-\subsection{Processo com três pólos iguais e zero no semi-plano direito}
+\subsection{Processo com três polos iguais e zero no semiplano direito}
 
-    O processo com três pólos iguais e zero no semi-plano direito do plano $s$
-    possui dinâmica definida pelo parametro $\alpha$. A presença de um
-    zero no semi-plano direito gera uma fase não-minima no sistema. Quanto maior
+    O processo com três polos iguais e zero no semiplano direito do plano $s$
+    possui dinâmica definida pelo parâmetro $\alpha$. A presença de um
+    zero no semiplano direito gera uma fase não-minima no sistema. Quanto maior
     o valor de $\alpha$, maior a dificuldade para se controlar o processo
     utilizando-se um controlador \acs{PID} convencional.
     
-    Por possuir tempo morto, pode ser considerado um processo facil de identificar
+    Por possuir tempo morto, pode ser considerado um processo fácil de identificar
     utilizando-se os métodos de identificação por curva de reação.
     
     As figuras \ref{cap2_11}, \ref{cap2_12}, \ref{cap2_13} e \ref{cap2_14}
@@ -194,25 +194,25 @@ do aluno que utiliza-se deste software como ferramenta de estudo dos controlador
 
     \begin{center}
         \includegraphics[width=0.75\textwidth]{imagens/cap2_model7_1.eps}
-        \captionof{figure}{Processo com três pólos iguais e zero no semi-plano direito - $\alpha = 0.2$}
+        \captionof{figure}{Processo com três polos iguais e zero no semiplano direito - $\alpha = 0.2$}
         \label{cap2_11}
     \end{center}
 
     \begin{center}
         \includegraphics[width=0.75\textwidth]{imagens/cap2_model7_2.eps}
-        \captionof{figure}{Processo com três pólos iguais e zero no semi-plano direito - $\alpha = 0.5$}
+        \captionof{figure}{Processo com três polos iguais e zero no semiplano direito - $\alpha = 0.5$}
         \label{cap2_12}
     \end{center}
     
     \begin{center}
         \includegraphics[width=0.75\textwidth]{imagens/cap2_model7_3.eps}
-        \captionof{figure}{Processo com três pólos iguais e zero no semi-plano direito - $\alpha = 1$}
+        \captionof{figure}{Processo com três polos iguais e zero no semiplano direito - $\alpha = 1$}
         \label{cap2_13}
     \end{center}
     
     \begin{center}
         \includegraphics[width=0.75\textwidth]{imagens/cap2_model7_4.eps}
-        \captionof{figure}{Processo com três pólos iguais e zero no semi-plano direito - $\alpha = 5$}
+        \captionof{figure}{Processo com três polos iguais e zero no semiplano direito - $\alpha = 5$}
         \label{cap2_14}
     \end{center}
 
@@ -232,7 +232,7 @@ do aluno que utiliza-se deste software como ferramenta de estudo dos controlador
     \end{equation}
     
     Nos gráficos abaixo existe oscilação no tempo morto, devido à aproximação de
-    padè utilizada no software. Os graficos foram gerados para uma aproximação
+    padé utilizada no software. Os gráficos foram gerados para uma aproximação
     de quinta ordem.
 
     \begin{center}
@@ -255,7 +255,7 @@ do aluno que utiliza-se deste software como ferramenta de estudo dos controlador
     O Processo de segunda ordem com tempo morto é similar ao de primeira ordem
     com tempo morto, com diferenças de dinâmica dadas pela diferença de ordem
     dos processos e pela constante de tempo $\tau$, que possui os seguintes valores,
-    típicamente: $0; 0,1; 0,2; 0,5; 2; 5; 10$. Para as figuras abaixo
+    tipicamente: $0; 0,1; 0,2; 0,5; 2; 5; 10$. Para as figuras abaixo
     (\ref{cap2_18} e \ref{cap2_19})foram utilizados valores de $\tau$ iguais
     a 2 e 5.
     
@@ -281,8 +281,8 @@ do aluno que utiliza-se deste software como ferramenta de estudo dos controlador
     dinâmicas distintas, sendo uma rápida, com ganho estático igual a 1 e constante
     de tempo igual a 1, e outra lenta, com um ganho estático igual a 10.
     
-    Este processo é dificil de controlar utilizando se controladores \acs{PID}
-    simples e identificando o processo com metodos de curva de reação, por conta das
+    Este processo é difícil de controlar utilizando se controladores \acs{PID}
+    simples e identificando o processo com métodos de curva de reação, por conta das
     características assimétricas do processo. Vide figura \ref{cap2_20}.
     
     \begin{equation}
@@ -356,8 +356,8 @@ do aluno que utiliza-se deste software como ferramenta de estudo dos controlador
 
 \subsection{Processo instável}
     
-    O processo instável é dificil de controlar utilizando-se controladores \ac{PID}
-    comuns e impossivel de se identificar utilizando-se os métodos por curva de
+    O processo instável é difícil de controlar utilizando-se controladores \ac{PID}
+    comuns e impossível de se identificar utilizando-se os métodos por curva de
     reação, pela sua característica de instabilidade.
     
     \begin{equation}
@@ -389,7 +389,7 @@ do aluno que utiliza-se deste software como ferramenta de estudo dos controlador
 
     Uma quantidade considerável de processos pode ser controlada com as ferramentas
     disponíveis no software produzido por este trabalho, e, mesmo para os processos
-    qua não podem ser controlados, a interação com o software proporciona um melhor
+    que não podem ser controlados, a interação com o software proporciona um melhor
     aprendizado e uma melhor compreensão dos conceitos do controlador \ac{PID}
     por parte dos alunos/usuários, proporcionados pela possibilidade de sintonia
     manual do controlado, disponível no software.

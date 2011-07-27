@@ -32,7 +32,7 @@ Polynomial(args)\end{verbatim}
 Matrix(args)\end{verbatim}
 
     Classe que implementa o tipo de dados Matriz, baseado em listas do
-    Python. O objeto matriz é uma lista de listas e posssui 2 propriedades:
+    Python. O objeto matriz é uma lista de listas e possui 2 propriedades:
     \textit{cols} (número de colunas) e \textit{rows} (número de linhas).
     
     Suporta soma, subtração, multiplicação (por outra matriz ou por um
@@ -66,8 +66,8 @@ Matrix(args)\end{verbatim}
     \begin{verbatim}
 TransferFunction(num, den)\end{verbatim}
 
-    Classe que implementa o tipo de dados Função de Transferencia, baseado
-    no tipo de dados Polinômio. O objeto função de transferencia posssui
+    Classe que implementa o tipo de dados Função de Transferência, baseado
+    no tipo de dados Polinômio. O objeto função de transferência possui
     2 propriedades: \textit{num} (numerador) e \textit{den} (denominador).
     
     Suporta soma, subtração, multiplicação (por outra função ou por um
@@ -94,14 +94,14 @@ StateSpace(a_or_tf, b=None, c=None, d=None)
     \end{verbatim}
 
     Classe que implementa o tipo de dados Espaço de Estados, baseado
-    nos tipos de dados Função de Transferencia e Matriz. O objeto função
-    de transferencia posssui 4 propriedades: \textit{a}, \textit{b},
+    nos tipos de dados Função de Transferência e Matriz. O objeto função
+    de transferência possui 4 propriedades: \textit{a}, \textit{b},
     \textit{c} e \textit{d}.
     
     Se o primeiro argumento for uma função de transferência, será transformado
     automaticamente em um modelo em espaço de estados durante a criação do
     objeto. Funcionalidade baseada na função \textit{tf2ss} do GNU Octave
-    (careçe de citação) que é parte do \textit{Octave Control Systems Toolbox}.
+    que é parte do \textit{Octave Control Systems Toolbox}.
     
     Exemplo de uso:
     
@@ -188,7 +188,7 @@ raise ControlSystemsError(error_message)\end{verbatim}
     
     Função que implementa a exceção básica que é provocada pelo software.
     
-    Herda todos os parametros e atributos da exceção padrão do Python.
+    Herda todos os parâmetros e atributos da exceção padrão do Python.
 
 \subsection{pidsim.core.helpers.get\_time\_near}
 
@@ -208,11 +208,11 @@ g = Pade3(t)
 g = Pade4(t)
 g = Pade5(t)\end{verbatim}
     
-    Funções que implementam a aproximação de Padè, para $1^a$, $2^a$, $3^a$,
+    Funções que implementam a aproximação de Padé, para $1^a$, $2^a$, $3^a$,
     $4^a$ e $5^a$ ordens.
     
     Recebem um tempo de atraso de transporte desejado e retornam uma
-    função de transferencia, para ser multiplicada com a função de transferencia
+    função de transferência, para ser multiplicada com a função de transferência
     original.
 
 \subsection{pidsim.core.pid.identification}
@@ -241,7 +241,7 @@ Ho(t, y)
 Smith(t, y)
 Viteckova(t, y)\end{verbatim}
         
-        Sub-classes da classe \textbf{pidsim.core.pid.identification.IdentificationMethod}.
+        Subclasses da classe \textbf{pidsim.core.pid.identification.IdentificationMethod}.
         Implementam cada método de identificação suportado pelo software.
 
 \subsection{pidsim.core.pid.tuning}
@@ -259,7 +259,7 @@ TuningMethod(t, y, i_method)\end{verbatim}
         
         \textit{t} é o vetor dos tempos, \textit{y} é o vetor das amplitudes.
         Ambos são retornados pelo método de discretização escolhido pelo
-        usuário. \textit{i\_method} é o metodo de identificação desejado
+        usuário. \textit{i\_method} é o método de identificação desejado
         para simular o controlador
     
     \subsubsection{pidsim.core.pid.identification.*}
@@ -270,5 +270,5 @@ CohenCoon(t, y, i_method)
 ChienHronesReswick0(t, y, i_method)
 ChienHronesReswick20(t, y, i_method)\end{verbatim}
         
-        Sub-classes da classe \textbf{pidsim.core.pid.identification.TuningMethod}.
+        Subclasses da classe \textbf{pidsim.core.pid.identification.TuningMethod}.
         Implementam cada método de sintonia \acs{PID} suportado pelo software.

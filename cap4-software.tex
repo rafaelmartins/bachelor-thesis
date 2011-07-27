@@ -2,13 +2,13 @@
 
 Neste capítulo são apresentados aspectos práticos e construtivos do
 software desenvolvido, indo desde uma descrição básica da funcionalidade
-do sóftware, até alguns resultados práticos e caracteristicas da linguagem
+do software, até alguns resultados práticos e características da linguagem
 de programação utilizada no projeto do software.
 
 \section{Descrição do software}
 
-    Este trabalho se baseia em um software, construido em linguagem Python
-    e disponivel via \ac{WWW}. O software, batizado de \textbf{PIDSIM},
+    Este trabalho se baseia em um software, construído em linguagem Python
+    e disponível via \ac{WWW}. O software, batizado de \textbf{PIDSIM},
     possui os 14 processos industriais referenciais apresentados no capítulo
     \ref{cap:processos-referenciais} implementados, bem como diversos
     métodos numéricos para modelagem de sistemas (que serão discutidos no
@@ -17,10 +17,10 @@ de programação utilizada no projeto do software.
     controladores \acs{PID} (também discutidos no capítulo
     \ref{cap:metodos-de-identificacao-e-sintonia}).
 
-    O software possui fins didáticos e foi construido visando facilitar a
+    O software possui fins didáticos e foi construído visando facilitar a
     utilização por parte dos alunos durante as aulas ou durante o estudo em casa.
     Todas as tecnologias utilizadas são livres e estão disponíveis na internet,
-    bem como o código-fonte dos modulos que compõem o software.
+    bem como o código-fonte dos módulos que compõem o software.
 
     Este software é desenvolvido desde 2009 e passou por grandes modificações
     desde então, até chegar ao resultado disponível hoje.
@@ -32,20 +32,20 @@ de programação utilizada no projeto do software.
     de Controle de Versão Mercurial \cite{Mercurial}: \\
     \url{http://hg.rafaelmartins.eng.br/pidsim/}
 
-    O software está licenciado sob a licença \ac{GPL-2} \cite{GPL-2}, podendo ser redistribuido
+    O software está licenciado sob a licença \ac{GPL-2} \cite{GPL-2}, podendo ser redistribuído
     livremente, de acordo com os termos da licença.
 
 \section{A linguagem Python}
 
     Durante a década passada, o Python \cite{Python} (uma linguagem linguagem interpretada
-    de alto-nivel) tornou-se o padrão de fato para a pesquisa científica
+    de alto-nível) tornou-se o padrão de fato para a pesquisa científica
     exploratória, interativa e voltada à computação \cite{5725235}.
     
     A linguagem Python é uma linguagem de alto-nível, orientada a objetos,
     amplamente utilizada atualmente. É uma linguagem de uso geral, sendo
-    usada para os mais diversos fins, seja a criação de um \textit{website}
+    usada para os mais diversos fins, seja a criação de um \textit{web site}
     ou uma aplicação pra desktop, ou para a criação de um aplicativo científico
-    com calculos complexos.
+    com cálculos complexos.
     
     Python é uma linguagem interpretada, e pode ser usada interativamente.
     Algumas pessoas podem assumir que isso limita o seu uso - por exemplo,
@@ -56,16 +56,16 @@ de programação utilizada no projeto do software.
 
     Uma das características marcantes do software livre é a possibilidade de
     usuários trabalharem no código-fonte do software e adicionar as funcionalidades
-    que desejar, porém isto se torna dificil se a arquitetura do software não tiver
+    que desejar, porém isto se torna difícil se a arquitetura do software não tiver
     sido bem planejada.
 
-    Levando se a facilidade de expansão em consideração, foi construida uma estrutura
+    Levando se a facilidade de expansão em consideração, foi construída uma estrutura
     modular para o software, dividindo-o em pacotes individuais, e com o minimo
     possível de interdependência entre si.
     
     \begin{center}
         \includegraphics[width=0.6\textwidth]{imagens/cap4-pacotes.eps}
-        \captionof{figure}{Dependencia entre os pacotes do software}
+        \captionof{figure}{Dependência entre os pacotes do software}
     \end{center}
     
     O software foi dividido em 3 pacotes Python:
@@ -77,7 +77,7 @@ de programação utilizada no projeto do software.
     \end{itemize}
 
     Cada pacote tem sua funcionalidade especifica definida, e pode ser desenvolvido
-    separadamente, facilitando bastante o desenvolvimento distribuido do software,
+    separadamente, facilitando bastante o desenvolvimento distribuído do software,
     que é uma das metas deste projeto.
 
     A adição e remoção de métodos é extremamente simples, facilitando as contribuições
@@ -89,12 +89,12 @@ de programação utilizada no projeto do software.
 
         O pacote \textbf{pidsim.core} é o pacote principal do software, sendo responsável
         por toda a implementação básica, como os tipos de dados (com suporte a conversão
-        de tipos e sobrecarga de operadores), os métodos numéricos, os algorítmos de controles,
+        de tipos e sobrecarga de operadores), os métodos numéricos, os algoritmos de controles,
         entre outras funcionalidades centrais do software.
 
         Este pacote foi implementado em Python puro, visando a possibilidade de utilização
-        em sistemas onde não fosse possível compilar modulos Python escritos em linguagem C.
-        Além disso, por se tratar de um projeto didático, não seria justificavel a utilização
+        em sistemas onde não fosse possível compilar módulos Python escritos em linguagem C.
+        Além disso, por se tratar de um projeto didático, não seria justificável a utilização
         de um grande numero de bibliotecas prontas.
 
         \subsubsection{Tipos básicos de dados}
@@ -110,7 +110,7 @@ de programação utilizada no projeto do software.
             \end{itemize}
 
             Um ponto importante desta implementação de tipos de dados é a conversão de Função
-            de Transferência para Espaco de Estados, que é vital para a discretização dos
+            de Transferência para Espaço de Estados, que é vital para a discretização dos
             processos.
 
         \subsubsection{Métodos de discretização de processos}
@@ -126,12 +126,12 @@ de programação utilizada no projeto do software.
 
             O estudante pode facilmente escolher qual dos métodos utilizar.
 
-        \subsubsection{Aproximação de Padè}
+        \subsubsection{Aproximação de Padé}
             
-            A implementação da aproximação de Padè criada é capaz de simular o tempo morto
+            A implementação da aproximação de Padé criada é capaz de simular o tempo morto
             para alguns sistemas.
 
-            Foi implementada a aproximação de Padè de $1^a$, $2^a$, $3^a$, $4^a$ e $5^a$ ordem.
+            Foi implementada a aproximação de Padé de $1^a$, $2^a$, $3^a$, $4^a$ e $5^a$ ordem.
 
         \subsubsection{Métodos de identificação de sistemas utilizando-se a curva de reação}
             
@@ -171,14 +171,14 @@ de programação utilizada no projeto do software.
 
             Cada processo é uma classe Python, com atributos específicos, como a expressão
             \LaTeX que representa o processo, um método Python que representa a função de
-            transferencia básica do processo, uma lista de argumentos que esta função recebe,
+            transferência básica do processo, uma lista de argumentos que esta função recebe,
             entre outros objetos necessários ao uso dos processos pela interface Web, ou qualquer
             outra interface que venha a ser desenvolvida.
 
         \subsection{pidsim.web}
             
             O pacote \textbf{pidsim.web} implementa a interface web, desenvolvida utilizando-se
-            o \textit{framework web} \textbf{Flask}, que é responsavel pela geração das páginas
+            o \textit{framework web} \textbf{Flask}, que é responsável pela geração das páginas
             WEB do software e o toolkit de plotagem de gráficos \textbf{Matplotlib}, que é
             responsável pela geração dos gráficos.
 
@@ -187,7 +187,7 @@ de programação utilizada no projeto do software.
 
 \section{A interface WEB}
 
-    A interface do software com o usuario é feita através da Internet, utilizando-se um aplicativo Web,
+    A interface do software com o usuário é feita através da Internet, utilizando-se um aplicativo Web,
     desenvolvido com o \textit{framework web} \textbf{Flask}.
 
     Uma imagem com a tela inicial do software pode ser vista abaixo:
@@ -200,17 +200,17 @@ de programação utilizada no projeto do software.
     O software possui suporte a internacionalização. Utilizando se o pacote Python Babel. Atualmente está
     implementado o suporte ao Inglês e ao Português.
     
-    \subsection{Exemplo - Processo de pólos múltiplos e iguais}
+    \subsection{Exemplo - Processo de polos múltiplos e iguais}
     
         O seguinte exemplo ilustra as funcionalidades disponíveis no software,
-        utilizando o processo de pólos múltiplos e iguais como caso de uso.
+        utilizando o processo de polos múltiplos e iguais como caso de uso.
         
         Segue a tela inicial do software, após selecionado o processo de
-        pólos múltiplos e iguais (processo 5).
+        polos múltiplos e iguais (processo 5).
         
         \begin{center}
             \includegraphics[width=0.8\textwidth]{imagens/cap4-model5-inicio.eps}
-            \captionof{figure}{Tela inicial do processo de pólos múltiplos e iguais}
+            \captionof{figure}{Tela inicial do processo de polos múltiplos e iguais}
         \end{center}
         
         Para este exemplo, serão utilizados os seguintes valores de parâmetros:
@@ -254,7 +254,7 @@ de programação utilizada no projeto do software.
             \captionof{figure}{Gráfico da simulação do controlador para o processo de exemplo}
         \end{center}
         
-        É possivel também alterar os valores dos ganhos $kp$, $ki$ e $kd$ manualmente.
+        É possível também alterar os valores dos ganhos $kp$, $ki$ e $kd$ manualmente.
         Este exemplo utilizará os ganhos: $kp=2.0$; $ki=0.9$ e $kd=1.4$,
         conforme a figura a seguir.
         
@@ -284,4 +284,4 @@ de programação utilizada no projeto do software.
 
     Da utilização deste software, conclui-se que existe uma enorme gama de variáveis
     envolvidas na sintonia de um controlador \acs{PID}, e que um simulador com as
-    caracteristicas do mesmo é uma ferramenta importante para estudo.
+    características do mesmo é uma ferramenta importante para estudo.

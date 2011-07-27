@@ -9,7 +9,7 @@ baseados no modelo FODT.
 
     O modelo \ac{FODT}, é um modelo aproximado, bastante utilizado para se
     identificar controladores \acs{PID} em malha aberta. O modelo \acs{FODT}
-    possui 3 parametros, o ganho do sistema $K$, a constante de tempo $\tau$
+    possui 3 parâmetros, o ganho do sistema $K$, a constante de tempo $\tau$
     e o tempo morto $L$, como pode ser visto na equação \ref{eq3_1}.
 
     \begin{equation}
@@ -79,7 +79,7 @@ PID & $Kp = \frac{\tau}{L(\frac{4}{3} + \frac{R}{4})}$ & $Ti = L(\frac{32+6R}{13
         O método de Chien, Hrones e Reswick é uma modificação do método
         de Ziegler-Nichols, adaptado para que a malha forneça uma resposta ao
         degrau com o menor tempo de subida. Os autores sugeriram um método
-        de resposta rápida, sem sobreelevação, ou com 20\% de sobreelevação.
+        de resposta rápida, sem sobrelevação, ou com 20\% de sobrelevação.
         
         \begin{center}
             \captionof{table}{Fórmulas para cálculo dos parâmetros - Chien, Hrones e Reswick 0\%}
@@ -108,10 +108,10 @@ PID & $Kp = 0.95\frac{\tau}{KL}$ & $Ti = 1.4\tau$ & $Td = 0.47L$ \\
 
 \section{Métodos heurísticos para identificação de controladores PID}
 
-    Os métodos heurístidos para identificação de controladores \acs{PID}
+    Os métodos heurísticos para identificação de controladores \acs{PID}
     utilizando-se o modelo \acs{FODT} são geralmente baseados em 2 pontos,
-    atrelados ao locao onde a curva do gráfico da resposta ao degrau em
-    malha aberta alcança certo nivel em relação à amplitude máxima da curva
+    atrelados ao local onde a curva do gráfico da resposta ao degrau em
+    malha aberta alcança certo nível em relação à amplitude máxima da curva
     ou ao ponto de estabilização do sistema.
     
     Os dois pontos do método de identificação definem uma reta, conhecida
@@ -143,6 +143,6 @@ Vitecková \textit{et al.} & 33.0 & 70.0 \\
 \section{Conclusões parciais}
 
     O modelo \acs{FODT}, com seus métodos de identificação e sintonia de
-    controladores, é extremamente util, apesar de sua aparente simplicidade e
+    controladores, é extremamente útil, apesar de sua aparente simplicidade e
     facilidade de uso, servindo relativamente bem a diversos casos de uso, onde
     a aplicação de um modelo mais avançado seria altamente custosa.
