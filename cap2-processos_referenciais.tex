@@ -20,14 +20,14 @@ do aluno que utiliza-se deste software como ferramenta de estudo dos controlador
 
 \subsection{Processo de primeira ordem}
     
-    O processo de primeira ordem é o mais simples de todo, sendo bastante encontrado
-    nas plantas industriais. É capaz de representar uma boa quantidade de motores,
-    pequenos entre outros processos.
+    O processo de primeira ordem é o mais simples de todos, sendo bastante presente
+    nas plantas industriais. É capaz de representar uma boa quantidade de motores
+    pequenos, entre outros processos.
     
     Devido às suas características dinâmicas (definidas pelo ganho estático $k$ e
     pela constante de tempo $\tau$), pelo seu curto tempo de subida, este processo
     é difícil de se identificar através de métodos que utilizem a curva de reação.
-    A resposta ao degrau para o processo de primeira ordem encontra-se na figura
+    A resposta ao degrau para o processo de primeira ordem encontra-se na Figura
     \ref{cap2_1}
     
     \begin{equation}
@@ -48,22 +48,35 @@ do aluno que utiliza-se deste software como ferramenta de estudo dos controlador
     
     Este processo é mais fácil de ser identificado a partir dos métodos de
     identificação utilizando a curva de reação do que o processo referencial de
-    primeira ordem. A resposta ao degrau para o processo de segunda ordem pode
-    ser vista na figura \ref{cap2_2}
+    primeira ordem. A resposta ao degrau para o processo de segunda ordem, utilizando
+    alguns valores diferentes para $T_1$ e $T_2$, está na Figura \ref{cap2_2_1}, na Figura
+    \ref{cap2_2_2} e na Figura \ref{cap2_2_3}.
     
     \begin{equation}
         G_p(s) = \frac{k}{(1+T_1 s)(1+T_2 s)}
     \end{equation}
     
     \begin{center}
-        \includegraphics[width=\textwidth]{imagens/cap2_model2_1.eps}
-        \captionof{figure}{Processo de segunda ordem}
-    \label{cap2_2}
+        \includegraphics[width=0.75\textwidth]{imagens/cap2_model2_1.eps}
+        \captionof{figure}{Processo de segunda ordem -- $T_1 = 2$, $T_2 = 5$}
+        \label{cap2_2_1}
+    \end{center}
+
+    \begin{center}
+        \includegraphics[width=0.75\textwidth]{imagens/cap2_model2_2.eps}
+        \captionof{figure}{Processo de segunda ordem -- $T_1 = 8$, $T_2 = 12$}
+        \label{cap2_2_2}
+    \end{center}
+    
+    \begin{center}
+        \includegraphics[width=0.75\textwidth]{imagens/cap2_model2_3.eps}
+        \captionof{figure}{Processo de segunda ordem -- $T_1 = 12$, $T_2 = 18$}
+        \label{cap2_2_3}
     \end{center}
 
 \subsection{Processo de segunda ordem de fase não-mínima}
 
-    O processo de segunda ordem de fase não-minima tem uma dinâmica diferente dos
+    O processo de segunda ordem de fase não-mínima tem uma dinâmica diferente dos
     outros processos já apresentados. Este processo apresenta resposta inversa à
     entrada, quando recebendo um sinal em forma de degrau, até um certo limite,
     passando a rastrear o sinal de entrada (referência). A fase não-mínima é
@@ -72,7 +85,7 @@ do aluno que utiliza-se deste software como ferramenta de estudo dos controlador
     Não apresenta grandes dificuldades para a identificação utilizando os métodos
     de identificação por curva de reação, dependendo dos parâmetros do processo,
     que são o ganho estático $k$ e as constantes de tempo $T_1$ e $T_2$. A resposta
-    ao degrau para o processo de segunda ordem de fase não-mínima está na figura
+    ao degrau para o processo de segunda ordem de fase não-mínima está na Figura
     \ref{cap2_3}.
 
     \begin{equation}
@@ -96,7 +109,7 @@ do aluno que utiliza-se deste software como ferramenta de estudo dos controlador
     de se controlar com controladores \acs{PID} convencionais, pois quanto maior
     o tempo morto, maior a razão de controlabilidade ($\alpha = \frac{L}{\tau}$).
     A resposta ao degrau para o processo de terceira ordem com tempo morto ajustável
-    está na figura \ref{cap2_4}.
+    está na Figura \ref{cap2_4}.
     
     \begin{equation}
         G_p(s) = \frac{k(1+T_4 s)}{(1+T_1 s)(1+T_2 s)(1+T_3 s)} e^{-T_t s}
@@ -108,17 +121,18 @@ do aluno que utiliza-se deste software como ferramenta de estudo dos controlador
         \label{cap2_4}
     \end{center}
 
-\subsection{Processo de polos múltiplos e iguais}
+\subsection{Processo de pólos múltiplos e iguais}
 
-    O processo de polos múltiplos e iguais possui dinâmica variável, dependendo
+    O processo de pólos múltiplos e iguais possui dinâmica variável, dependendo
     do parâmetro $n$, que representa a ordem do sistema.
     
-    O aumento da ordem do sistema tende a facilitar a identificação através dos
-    métodos de identificação por curva de reação.
-    
-    Os valores de $n$ variam de 1 a 4, tipicamente. As figuras \ref{cap2_5},
+    Os valores de $n$ variam de 1 a 4, tipicamente. As Figuras \ref{cap2_5},
     \ref{cap2_6}, \ref{cap2_7} e \ref{cap2_8} apresentam os gráficos para
-    $n$ igual a 1, 2, 3 e 4.
+    $n$ igual a 1, 2, 3 e 4, respectivamente.
+    
+    A partir da análise dos gráficos, percebe-se que o aumento da ordem do sistema
+    tende a facilitar a identificação através dos métodos de identificação por
+    curva de reação.
     
     \begin{equation}
         G_p(s) = \frac{1}{(s+1)^n}
@@ -126,25 +140,25 @@ do aluno que utiliza-se deste software como ferramenta de estudo dos controlador
 
     \begin{center}
         \includegraphics[width=0.75\textwidth]{imagens/cap2_model5_1.eps}
-        \captionof{figure}{Processo de polos múltiplos e iguais - $n = 1$}
+        \captionof{figure}{Processo de pólos múltiplos e iguais -- $n = 1$}
         \label{cap2_5}
     \end{center}
     
     \begin{center}
         \includegraphics[width=0.75\textwidth]{imagens/cap2_model5_2.eps}
-        \captionof{figure}{Processo de polos múltiplos e iguais - $n = 2$}
+        \captionof{figure}{Processo de pólos múltiplos e iguais -- $n = 2$}
         \label{cap2_6}
     \end{center}
     
     \begin{center}
         \includegraphics[width=0.75\textwidth]{imagens/cap2_model5_3.eps}
-        \captionof{figure}{Processo de polos múltiplos e iguais - $n = 3$}
+        \captionof{figure}{Processo de pólos múltiplos e iguais -- $n = 3$}
         \label{cap2_7}
     \end{center}
     
     \begin{center}
         \includegraphics[width=0.75\textwidth]{imagens/cap2_model5_4.eps}
-        \captionof{figure}{Processo de polos múltiplos e iguais - $n = 4$}
+        \captionof{figure}{Processo de pólos múltiplos e iguais -- $n = 4$}
         \label{cap2_8}
     \end{center}
 
@@ -164,19 +178,19 @@ do aluno que utiliza-se deste software como ferramenta de estudo dos controlador
 
     \begin{center}
         \includegraphics[width=0.75\textwidth]{imagens/cap2_model6_1.eps}
-        \captionof{figure}{Processo de quarta ordem - $\alpha = 0.2$}
+        \captionof{figure}{Processo de quarta ordem -- $\alpha = 0.2$}
         \label{cap2_9}
     \end{center}
     
     \begin{center}
         \includegraphics[width=0.75\textwidth]{imagens/cap2_model6_2.eps}
-        \captionof{figure}{Processo de quarta ordem - $\alpha = 0.5$}
+        \captionof{figure}{Processo de quarta ordem -- $\alpha = 0.5$}
         \label{cap2_10}
     \end{center}
 
-\subsection{Processo com três polos iguais e zero no semiplano direito}
+\subsection{Processo com três pólos iguais e um zero no semiplano direito}
 
-    O processo com três polos iguais e zero no semiplano direito do plano $s$
+    O processo com três pólos iguais e um zero no semiplano direito do plano $s$
     possui dinâmica definida pelo parâmetro $\alpha$. A presença de um
     zero no semiplano direito gera uma fase não-minima no sistema. Quanto maior
     o valor de $\alpha$, maior a dificuldade para se controlar o processo
@@ -185,8 +199,9 @@ do aluno que utiliza-se deste software como ferramenta de estudo dos controlador
     Por possuir tempo morto, pode ser considerado um processo fácil de identificar
     utilizando-se os métodos de identificação por curva de reação.
     
-    As figuras \ref{cap2_11}, \ref{cap2_12}, \ref{cap2_13} e \ref{cap2_14}
-    mostram o comportamento do processo para diferentes valores de $\alpha$.
+    Nas Figuras \ref{cap2_11}, \ref{cap2_12}, \ref{cap2_13} e \ref{cap2_14}
+    são mostradas as variações de comportamento do processo para diferentes
+    valores de $\alpha$.
 
     \begin{equation}
         G_p(s) = \frac{1-\alpha s}{(s+1)^3}
@@ -194,25 +209,25 @@ do aluno que utiliza-se deste software como ferramenta de estudo dos controlador
 
     \begin{center}
         \includegraphics[width=0.75\textwidth]{imagens/cap2_model7_1.eps}
-        \captionof{figure}{Processo com três polos iguais e zero no semiplano direito - $\alpha = 0.2$}
+        \captionof{figure}{Processo com três pólos iguais e zero no semiplano direito -- $\alpha = 0.2$}
         \label{cap2_11}
     \end{center}
 
     \begin{center}
         \includegraphics[width=0.75\textwidth]{imagens/cap2_model7_2.eps}
-        \captionof{figure}{Processo com três polos iguais e zero no semiplano direito - $\alpha = 0.5$}
+        \captionof{figure}{Processo com três pólos iguais e zero no semiplano direito -- $\alpha = 0.5$}
         \label{cap2_12}
     \end{center}
     
     \begin{center}
         \includegraphics[width=0.75\textwidth]{imagens/cap2_model7_3.eps}
-        \captionof{figure}{Processo com três polos iguais e zero no semiplano direito - $\alpha = 1$}
+        \captionof{figure}{Processo com três pólos iguais e zero no semiplano direito -- $\alpha = 1$}
         \label{cap2_13}
     \end{center}
     
     \begin{center}
         \includegraphics[width=0.75\textwidth]{imagens/cap2_model7_4.eps}
-        \captionof{figure}{Processo com três polos iguais e zero no semiplano direito - $\alpha = 5$}
+        \captionof{figure}{Processo com três pólos iguais e zero no semiplano direito -- $\alpha = 5$}
         \label{cap2_14}
     \end{center}
 
@@ -235,19 +250,25 @@ do aluno que utiliza-se deste software como ferramenta de estudo dos controlador
     padé utilizada no software. Os gráficos foram gerados para uma aproximação
     de quinta ordem.
 
+    Nas Figuras \ref{cap2_8_1}, \ref{cap2_8_2} e \ref{cap2_8_3} são mostradas as
+    variações de comportamento do processo para diferentes valores de $\tau$.
+
     \begin{center}
         \includegraphics[width=0.75\textwidth]{imagens/cap2_model8_1.eps}
-        \captionof{figure}{Processo de primeira ordem com tempo morto - $\tau = 0.5$}
+        \captionof{figure}{Processo de primeira ordem com tempo morto -- $\tau = 0.5$}
+	\label{cap2_8_1}
     \end{center}
 
     \begin{center}
         \includegraphics[width=0.75\textwidth]{imagens/cap2_model8_2.eps}
-        \captionof{figure}{Processo de primeira ordem com tempo morto - $\tau = 2$}
+        \captionof{figure}{Processo de primeira ordem com tempo morto -- $\tau = 2$}
+	\label{cap2_8_2}
     \end{center}
     
     \begin{center}
         \includegraphics[width=0.75\textwidth]{imagens/cap2_model8_3.eps}
-        \captionof{figure}{Processo de primeira ordem com tempo morto - $\tau = 10$}
+        \captionof{figure}{Processo de primeira ordem com tempo morto -- $\tau = 10$}
+	\label{cap2_8_3}
     \end{center}
 
 \subsection{Processo de segunda ordem com tempo morto}
@@ -255,9 +276,9 @@ do aluno que utiliza-se deste software como ferramenta de estudo dos controlador
     O Processo de segunda ordem com tempo morto é similar ao de primeira ordem
     com tempo morto, com diferenças de dinâmica dadas pela diferença de ordem
     dos processos e pela constante de tempo $\tau$, que possui os seguintes valores,
-    tipicamente: $0; 0,1; 0,2; 0,5; 2; 5; 10$. Para as figuras abaixo
-    (\ref{cap2_18} e \ref{cap2_19})foram utilizados valores de $\tau$ iguais
-    a 2 e 5.
+    tipicamente: $0; 0,1; 0,2; 0,5; 2; 5; 10$. Para as Figuras
+    \ref{cap2_18} e \ref{cap2_19} foram utilizados valores de $\tau$ iguais
+    a 2 e 5, respectivamente.
     
     \begin{equation}
         G_p(s) = \frac{1}{(\tau s +1)^2}e^{-s}
@@ -265,13 +286,13 @@ do aluno que utiliza-se deste software como ferramenta de estudo dos controlador
 
     \begin{center}
         \includegraphics[width=0.75\textwidth]{imagens/cap2_model9_1.eps}
-        \captionof{figure}{Processo de segunda ordem com tempo morto - $\tau = 2$}
+        \captionof{figure}{Processo de segunda ordem com tempo morto -- $\tau = 2$}
         \label{cap2_18}
     \end{center}
     
     \begin{center}
         \includegraphics[width=0.75\textwidth]{imagens/cap2_model9_2.eps}
-        \captionof{figure}{Processo de segunda ordem com tempo morto - $\tau = 5$}
+        \captionof{figure}{Processo de segunda ordem com tempo morto -- $\tau = 5$}
         \label{cap2_19}
     \end{center}
 
@@ -283,7 +304,7 @@ do aluno que utiliza-se deste software como ferramenta de estudo dos controlador
     
     Este processo é difícil de controlar utilizando se controladores \acs{PID}
     simples e identificando o processo com métodos de curva de reação, por conta das
-    características assimétricas do processo. Vide figura \ref{cap2_20}.
+    características assimétricas do processo. Vide Figura \ref{cap2_20}.
     
     \begin{equation}
         G_p(s) = \frac{100}{(s+10)^2}\left ( \frac{1}{s+1} + \frac{0,5}{s+0,05} \right )
@@ -299,7 +320,7 @@ do aluno que utiliza-se deste software como ferramenta de estudo dos controlador
     
     O processo condicionalmente estável pode se comportar como um processo estável
     ou instável, dependendo do ajuste do ponto de operação dos controladores.
-    Vide figura \ref{cap2_21}.
+    Vide Figura \ref{cap2_21}.
     
     \begin{equation}
         G_p(s) = \frac{(s+6)^2}{s(s+1)^2 (s+36)}
@@ -321,44 +342,52 @@ do aluno que utiliza-se deste software como ferramenta de estudo dos controlador
         G_p(s) = \frac{\omega _0^2}{(s+1)(s^2+2\zeta \omega _0 s+\omega _0^2)}
     \end{equation}
     
-    As figuras abaixo mostram o comportamento do processo para $\zeta$
+    Nas Figuras \ref{cap2_12_1}, \ref{cap2_12_2}, \ref{cap2_12_3}, \ref{cap2_12_4},
+    \ref{cap2_12_5} e \ref{cap2_12_6}
+    são mostradas as variações do comportamento do processo para $\zeta$
     igual a 1 e 5, variando-se o valor de $\omega _0$ entre 1, 2 e 10.
     
     \begin{center}
         \includegraphics[width=0.75\textwidth]{imagens/cap2_model12_1.eps}
-        \captionof{figure}{Processo oscilatório - $\omega _0 = 1$, $\zeta = 1$}
+        \captionof{figure}{Processo oscilatório -- $\omega _0 = 1$, $\zeta = 1$}
+	\label{cap2_12_1}
     \end{center}
     
     \begin{center}
         \includegraphics[width=0.75\textwidth]{imagens/cap2_model12_2.eps}
-        \captionof{figure}{Processo oscilatório - $\omega _0 = 1$, $\zeta = 5$}
+        \captionof{figure}{Processo oscilatório -- $\omega _0 = 1$, $\zeta = 5$}
+	\label{cap2_12_2}
     \end{center}
     
     \begin{center}
         \includegraphics[width=0.75\textwidth]{imagens/cap2_model12_3.eps}
-        \captionof{figure}{Processo oscilatório - $\omega _0 = 2$, $\zeta = 1$}
+        \captionof{figure}{Processo oscilatório -- $\omega _0 = 2$, $\zeta = 1$}
+	\label{cap2_12_3}
     \end{center}
     
     \begin{center}
         \includegraphics[width=0.75\textwidth]{imagens/cap2_model12_4.eps}
-        \captionof{figure}{Processo oscilatório - $\omega _0 = 2$, $\zeta = 5$}
+        \captionof{figure}{Processo oscilatório -- $\omega _0 = 2$, $\zeta = 5$}
+        \label{cap2_12_4}
     \end{center}
     
     \begin{center}
         \includegraphics[width=0.75\textwidth]{imagens/cap2_model12_5.eps}
-        \captionof{figure}{Processo oscilatório - $\omega _0 = 10$, $\zeta = 1$}
+        \captionof{figure}{Processo oscilatório -- $\omega _0 = 10$, $\zeta = 1$}
+	\label{cap2_12_5}
     \end{center}
     
     \begin{center}
         \includegraphics[width=0.75\textwidth]{imagens/cap2_model12_6.eps}
-        \captionof{figure}{Processo oscilatório - $\omega _0 = 10$, $\zeta = 5$}
+        \captionof{figure}{Processo oscilatório -- $\omega _0 = 10$, $\zeta = 5$}
+	\label{cap2_12_6}
     \end{center}
 
 \subsection{Processo instável}
     
     O processo instável é difícil de controlar utilizando-se controladores \ac{PID}
     comuns e impossível de se identificar utilizando-se os métodos por curva de
-    reação, pela sua característica de instabilidade.
+    reação, pela sua característica de instabilidade. Vide Figura \ref{cap2_13_1}
     
     \begin{equation}
         G_p(s) = \frac{1}{s^2 - 1}
@@ -367,13 +396,14 @@ do aluno que utiliza-se deste software como ferramenta de estudo dos controlador
     \begin{center}
         \includegraphics[width=\textwidth]{imagens/cap2_model13_1.eps}
         \captionof{figure}{Processo instável}
+	\label{cap2_13_1}
     \end{center}
 
 \subsection{Processo de primeira ordem mais tempo morto com a presença de integrador}
     
     O processo de primeira ordem mais tempo morto com a presença de integrador é
-    similar ao processo de primeira ordem mais tempo morto, mas possui um polo
-    na origem, dificultando o controle do processo. Vide figura \ref{cap2_26}
+    similar ao processo de primeira ordem mais tempo morto, mas possui um pólo
+    na origem, dificultando o controle do processo. Vide Figura \ref{cap2_26}
     
     \begin{equation}
         G_p(s) = \frac{1}{s(\tau s + 1)}e^{-s}
@@ -388,8 +418,8 @@ do aluno que utiliza-se deste software como ferramenta de estudo dos controlador
 \section{Conclusões parciais}
 
     Uma quantidade considerável de processos pode ser controlada com as ferramentas
-    disponíveis no software produzido por este trabalho, e, mesmo para os processos
-    que não podem ser controlados, a interação com o software proporciona um melhor
-    aprendizado e uma melhor compreensão dos conceitos do controlador \ac{PID}
+    disponíveis no software produzido por este trabalho, e mesmo para os processos
+    que não podem ser controlados, a interação com o software proporciona melhor
+    aprendizado e melhor compreensão dos conceitos do controlador \ac{PID}
     por parte dos alunos/usuários, proporcionados pela possibilidade de sintonia
-    manual do controlado, disponível no software.
+    manual do controlador disponível no software.
