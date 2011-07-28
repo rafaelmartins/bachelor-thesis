@@ -10,6 +10,8 @@
 
 \LoadClassWithOptions{abnt}
 
+\setlength{\parindent}{1.5cm}
+
 \renewcommand{\rmdefault}{ugm}
 
 \renewcommand{\capa}{

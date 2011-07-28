@@ -1,19 +1,18 @@
 \chapter{Introdução\label{cap:introducao}}
 
-\section*{}
-
-    As teorias de controle de sistemas e os controladores industriais não são um assunto
-    novo. Desde o avanço da eletrônica analogia e o surgimento dos amplificadores
-    operacionais o homem tenta compensar os erros nos processos industriais de maneira
-    automática.
+    As teorias de controle de sistemas e os controladores industriais não são assuntos
+    novos. ``O primeiro controlador automático industrial de que há notícia é o regulador centrífugo
+    inventado em 1775, por James Watts, para o controle de velocidade das máquinas à vapor.''
+    \cite{senai}
 
     A habilidade dos controladores \ac{PI} e \ac{PID} para compensar a maioria dos processos
     industriais práticos resultou na larga aceitação dos mesmos nas aplicações industriais
     \cite{Dwyer}. A maioria dos controladores utilizados na industria são do tipo
-    \acs{PID} \cite{astrom1984645}, representando mais de 90\% das malhas atuais \cite{astrom20011163}. 
+    \acs{PID} \cite{astrom1984645}, representando mais de 90\% das malhas industriais
+    em atividade \cite{astrom20011163}. 
 
-    Desde então os controladores industriais são uma das partes mais importantes de qualquer
-    planta industrial, garantindo a estabilidade da operação e fazendo valer as restrições
+    Desde então os controladores industriais são uma das partes mais importantes das
+    plantas industriais, garantindo a estabilidade da operação e fazendo valer as restrições
     do processo.
 
     Os controladores \acs{PID} são capazes de compensar os 2 tipos de erros encontrados
@@ -23,23 +22,23 @@
     acordo com o ajuste da entrada da planta.
 
     Os controladores \acs{PID} são constantemente utilizados nas plantas industriais para
-    ajustes de nível, vazão, velocidade e posição, dentre outros, pela sua característica
-    de estabilidade e pela facilidade de sintonia, se utilizada uma abordagem prática
-    para identificação da planta, que é um dos maiores problemas para os engenheiros.
+    ajustes de nível, vazão, velocidade e posição, dentre outros, pelas suas características
+    de estabilidade e pela sua facilidade de sintonia quando utilizada uma abordagem prática
+    para identificação da planta, o que é um dos maiores problemas para os engenheiros.
 
     São vários os métodos de sintonia para controladores \acs{PID} utilizados em processos
     industriais. Dentre estes, os métodos baseados na resposta ao degrau: Ziegler e Nichols,
-    Cohen-Coon e López são os mais utilizados. Estes métodos tradicionais são, até hoje,
-    referencia para o estudo dos controladores \ac{PID}, apesar do avanço e das novas
-    técnicas disponíveis atualmente.
+    Cohen-Coon e López. Estes métodos tradicionais são, até hoje, referencia para o estudo
+    dos controladores \ac{PID}, apesar do avanço e das novas técnicas disponíveis atualmente.
 
-    Os métodos mais clássicos para a obtenção do modelo dinâmico de um sistema, encontrados
-    na literatura, são o método do ganho crítico e a resposta ao degrau, que são capazes
-    de aproximar modelos de ordem maior ou igual a 2 de modelos de primeira ordem.
+    ``Os métodos mais clássicos para a obtenção do modelo dinâmico de um sistema são a
+    resposta ao degrau e o método do ganho crítico, que conduzem, neste caso, a um modelo de
+    primeira ordem com três parâmetros a saber: o ganho estático do processo, o tempo morto
+    e a constante de tempo do processo.'' \cite{carmo}
 
     Este trabalho possui um enfoque didático, sendo desenvolvido para o uso em sala de aula,
-    em aulas de controle. Para isto, o software possui diversas características que estimulam
-    o desenvolvimento do aluno e o aprendizado do funcionamento de cada controlador e 
+    em aulas de controle. Para isto, o software desenvolvido possui diversas características
+    que estimulam o desenvolvimento do aluno e o aprendizado do funcionamento de cada controlador e 
     de cada processo.
 
     O trabalho também faz intensivo uso de software livre, além de ter originado um software
@@ -50,7 +49,7 @@
 
 \section{Identificação do problema}
     
-    Os controladores industriais evoluíram bastante desde o nascimento, sendo necessária
+    Os controladores industriais evoluíram bastante desde o seu surgimento, sendo necessária
     a constante atualização do profissional com relação às técnicas de sintonia dos
     controladores e a teoria básica dos mesmos.
 
@@ -58,37 +57,37 @@
     tempos. É difícil para um professor proporcionar experiências práticas para os
     alunos com o material atualmente disponível nas salas de aula das universidades.
     
-    Questões concretas ligadas à automação e controle, tais como projetos de
+    ``Questões concretas ligadas à automação e controle, tais como projetos de
     controladores utilizando as diversas ferramentas analíticas disponíveis, sintonia de
     controladores, compensação dinâmica, aspectos práticos de implementação de sistemas de
     controle, novas técnicas de inteligência computacional aplicadas à automação e controle,
     novas estruturas de controladores, para citar alguns, não são disponibilizados, na estrutura
-    curricular normal, para a formação dos alunos \cite{cobenge}.
+    curricular normal, para a formação dos alunos.'' \cite{cobenge}
 
     Os alunos dos cursos de Engenharia de Controle e Automação precisam ter uma
     visão prática dos problemas encontrados em uma planta industrial, para saberem
-    como agir nas situações de problema, portanto torna-se imprescindível a existência
-    de uma abordagem mais prática dos problemas de engenharia nas disciplinas do curso.
+    como agir nas situações de problema. Portanto, torna-se imprescindível a existência
+    de uma abordagem mais prática nas disciplinas dos cursos.
 
     A dificuldade de uso das ferramentas existentes atualmente é também um limitador
-    importante da abordagem prática dos cursos existentes atualmente. Muitas ferramentas
+    importante da abordagem prática dos cursos universitários. Muitas ferramentas
     são difíceis de operar e instalar, ou são caras, ou dependem de sistemas operacionais
     proprietários para funcionar, que também são caros.
 
 \section{Motivação do estudo}
 
-    O curso de Engenharia de Controle e Automação visa formar profissionais
+    Os cursos de Engenharia de Controle e Automação visam formar profissionais
     capazes de lidar com as ferramentas atuais utilizadas nas plantas industriais
     dos mais diversos setores da industria. Os controladores industriais são
     parte importante da maioria das plantas industriais atualmente ativas,
-    sendo de fundamental importância para uma grande gama de processos, portanto
+    sendo de fundamental importância para uma grande gama de processos. Portanto,
     é extremamente necessário que o engenheiro tenha o conhecimento do funcionamento
     dos controladores, bem como do processo de sintonia dos mesmos.
     
     Atualmente não existem grandes alternativas livres para o estudo e ensino
     de Controladores PID de maneira fácil e prática. A maioria das soluções
     disponíveis é construída com base em softwares proprietários de alto custo,
-    como o \textbf{MATLAB} $^{\textregistered}$.
+    como o \textbf{MATLAB} \textsuperscript{\textregistered}.
     
     Este trabalho nasceu como uma tentativa de entender o funcionamento dos
     controladores PID mais a fundo, e cresceu, originando uma suíte completa
@@ -102,13 +101,13 @@
 \section{Objetivos do trabalho}
 
     Este trabalho possui fins didáticos, e foi desenvolvido para proporcionar
-    aprendizado tanto a quem desenvolve o software quanto a quem o utiliza em sala
-    de aula.
+    aprendizado tanto a quem desenvolve o software quanto a quem utiliza o software
+    em sala de aula.
     
     A facilidade de uso e a possibilidade de utilização do software sem instalar
-    nada nas maquinas dos alunos também foi levada em consideração durante o
-    planejamento do desenvolvimento e a durante a escolha das ferramentas a serem
-    utilizadas no projeto.
+    nada nos computadores dos alunos também foi levada em consideração durante o
+    planejamento do desenvolvimento e a durante a escolha das ferramentas de software
+    a serem utilizadas no projeto.
     
     Um estudante deve ser capaz de operar o software apenas com conhecimentos
     básicos de informática e da teoria dos controladores \acs{PID}, de explorar o
@@ -125,15 +124,14 @@
     permitir a sintonia manual do controlador e simular o sistema com o controlador,
     utilizando a sintonia obtida, seja automaticamente ou manualmente.
     
-    Um dos grandes objetivos do trabalho era produzir um software de qualidade 
+    Um dos grandes objetivos do trabalho é produzir um software de qualidade 
     totalmente baseado em softwares e padrões livres. Desta forma o software,
     além de não possuir custo algum para os alunos e instituições de ensino, permite
     que os alunos participem do desenvolvimento, corrigindo falhas, melhorando
     métodos, adicionando novas funcionalidades, etc.
     
-    O uso de ferramentas livres, como um \ac{SCV} aberto, um toolkit para plotagem
-    de gráficos aberto e uma linguagem de programação aberta, também foi um objetivo
-    importante do trabalho.
+    O uso de ferramentas livres, como o \ac{SCV}, o \textit{toolkit} para plotagem
+    de gráficos e a linguagem de programação, também foi um objetivo importante do trabalho.
 
 \section{Estrutura do trabalho}
 
