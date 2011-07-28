@@ -95,7 +95,7 @@ StateSpace(a_or_tf, b=None, c=None, d=None)
 
     Classe que implementa o tipo de dados Espaço de Estados, baseado
     nos tipos de dados Função de Transferência e Matriz. O objeto função
-    de transferência possui 4 propriedades: \textit{a}, \textit{b},
+    de transferência possui quatro propriedades: \textit{a}, \textit{b},
     \textit{c} e \textit{d}.
     
     Se o primeiro argumento for uma função de transferência, será transformado
@@ -136,7 +136,7 @@ t, y = Euler(g, sample_time, total_time)\end{verbatim}
     Recebe uma função de transferência, o tempo de amostragem e o tempo
     total.
 
-    Retorna uma tupla de 2 vetores, que são o vetor dos tempos e das amplitudes,
+    Retorna uma tupla de dois vetores, que são o vetor dos tempos e das amplitudes,
     respectivamente.
 
 \subsection{pidsim.core.discretization.RungeKutta2}
@@ -150,7 +150,7 @@ t, y = RungeKutta2(g, sample_time, total_time)\end{verbatim}
     Recebe uma função de transferência, o tempo de amostragem e o tempo
     total.
     
-    Retorna uma tupla de 2 vetores, que são o vetor dos tempos e das amplitudes,
+    Retorna uma tupla de dois vetores, que são o vetor dos tempos e das amplitudes,
     respectivamente.
 
 \subsection{pidsim.core.discretization.RungeKutta3}
@@ -164,7 +164,7 @@ t, y = RungeKutta3(g, sample_time, total_time)\end{verbatim}
     Recebe uma função de transferência, o tempo de amostragem e o tempo
     total.
     
-    Retorna uma tupla de 2 vetores, que são o vetor dos tempos e das amplitudes,
+    Retorna uma tupla de dois vetores, que são o vetor dos tempos e das amplitudes,
     respectivamente.
 
 \subsection{pidsim.core.discretization.RungeKutta4}
@@ -178,7 +178,7 @@ t, y = RungeKutta4(g, sample_time, total_time)\end{verbatim}
     Recebe uma função de transferência, o tempo de amostragem e o tempo
     total.
     
-    Retorna uma tupla de 2 vetores, que são o vetor dos tempos e das amplitudes,
+    Retorna uma tupla de dois vetores, que são o vetor dos tempos e das amplitudes,
     respectivamente.
 
 \subsection{pidsim.core.error.ControlSystemsError}
@@ -257,7 +257,7 @@ TuningMethod(t, y, i_method)\end{verbatim}
         Classe base, herdada pelas outras classes, que implementam as
         características especificas de cada método de sintonia.
         
-        \textit{t} é o vetor dos tempos, \textit{y} é o vetor das amplitudes.
+        O parâmetro \textit{t} é o vetor dos tempos, e o parâmetro \textit{y} é o vetor das amplitudes.
         Ambos são retornados pelo método de discretização escolhido pelo
         usuário. \textit{i\_method} é o método de identificação desejado
         para simular o controlador
