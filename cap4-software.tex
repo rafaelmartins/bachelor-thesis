@@ -9,12 +9,12 @@ de programação utilizada no projeto do software.
 
     Este trabalho se baseia em um software, construído em linguagem Python
     e disponível via \ac{WWW}. O software, batizado de \textbf{PIDSIM},
-    possui os 14 processos industriais referenciais apresentados no capítulo
+    possui os catorze processos industriais referenciais apresentados no Capítulo
     \ref{cap:processos-referenciais} implementados, bem como diversos
-    métodos numéricos para modelagem de sistemas (que serão discutidos no
-    Anexo 1), métodos de identificação de sistemas (discutidos no capítulo
+    métodos numéricos para modelagem de sistemas, métodos de identificação
+    de sistemas (discutidos no Capítulo
     \ref{cap:metodos-de-identificacao-e-sintonia}) e métodos de sintonia de
-    controladores \acs{PID} (também discutidos no capítulo
+    controladores \acs{PID} (também discutidos no Capítulo
     \ref{cap:metodos-de-identificacao-e-sintonia}).
 
     O software possui fins didáticos e foi construído visando facilitar a
@@ -37,35 +37,37 @@ de programação utilizada no projeto do software.
 
 \section{A linguagem Python}
 
-    Durante a década passada, o Python \cite{Python} (uma linguagem linguagem interpretada
+    ``Durante a década passada, o Python (uma linguagem interpretada
     de alto-nível) tornou-se o padrão de fato para a pesquisa científica
-    exploratória, interativa e voltada à computação \cite{5725235}.
+    exploratória, interativa e voltada à computação.'' \cite{5725235}
     
-    A linguagem Python é uma linguagem de alto-nível, orientada a objetos,
-    amplamente utilizada atualmente. É uma linguagem de uso geral, sendo
-    usada para os mais diversos fins, seja a criação de um \textit{web site}
-    ou uma aplicação pra desktop, ou para a criação de um aplicativo científico
-    com cálculos complexos.
+    A linguagem Python \cite{Python} é uma linguagem de uso geral, orientada a objetos,
+    amplamente utilizada atualmente para os mais diversos fins, seja para a criação de um
+    \textit{web site} ou uma aplicação para desktop, ou para a criação de um aplicativo
+    científico com cálculos complexos.
     
-    Python é uma linguagem interpretada, e pode ser usada interativamente.
+    ``Python é uma linguagem interpretada, e pode ser usada interativamente.
     Algumas pessoas podem assumir que isso limita o seu uso - por exemplo,
     que uma linguagem interpretada possivelmente não será rápida o bastante
-    para programação científica -, mas isto não é verdade \cite{4160249}.
+    para programação científica -, mas isto não é verdade.'' \cite{4160249}
 
 \section{Arquitetura do software}
 
     Uma das características marcantes do software livre é a possibilidade de
     usuários trabalharem no código-fonte do software e adicionar as funcionalidades
-    que desejar, porém isto se torna difícil se a arquitetura do software não tiver
-    sido bem planejada.
+    que desejarem, porém isto se torna difícil se a arquitetura do software não tiver
+    sido bem planejada, com uma divisão precisa de funcionalidades entre classes e
+    pacotes.
 
-    Levando se a facilidade de expansão em consideração, foi construída uma estrutura
-    modular para o software, dividindo-o em pacotes individuais, e com o minimo
-    possível de interdependência entre si.
+    Levando-se a facilidade de expansão em consideração, foi construída uma estrutura
+    modular para o software, dividindo-o em pacotes individuais, e com o mínimo
+    possível de interdependência entre si. A Figura \ref{cap4_pacotes} mostra a
+    dependência existente entre os pacotes do software.
     
     \begin{center}
         \includegraphics[width=0.6\textwidth]{imagens/cap4-pacotes.eps}
         \captionof{figure}{Dependência entre os pacotes do software}
+	\label{cap4_pacotes}
     \end{center}
     
     O software foi dividido em 3 pacotes Python:
@@ -113,9 +115,9 @@ de programação utilizada no projeto do software.
             de Transferência para Espaço de Estados, que é vital para a discretização dos
             processos.
 
-        \subsubsection{Métodos de discretização de processos}
+        \subsubsection{Métodos numéricos para discretização de processos}
 
-            Foram implementados os seguintes métodos de discretização de processos:
+            Foram implementados os seguintes métodos numéricos utilizados para discretização dos processos:
 
             \begin{itemize}
                 \item Euler
@@ -147,7 +149,7 @@ de programação utilizada no projeto do software.
                 \item Vitecková \textit{et al.}
             \end{itemize}
 
-            Cada método possui suas características particulares, que já foram discutidas no capítulo
+            Cada método possui suas características particulares, que já foram discutidas no Capítulo
             \ref{cap:metodos-de-identificacao-e-sintonia}.
 
         \subsubsection{Métodos de sintonia para controladores \acs{PID}}
@@ -161,16 +163,16 @@ de programação utilizada no projeto do software.
                 \item Chien \& Hrones \& Reswick 20\% de \textit{Overshoot}
             \end{itemize}
 
-            Estes métodos também já foram discutidos no capítulo
+            Estes métodos também já foram discutidos no Capítulo
             \ref{cap:metodos-de-identificacao-e-sintonia}.
 
         \subsection{pidsim.models}
             
-            O pacote \textbf{pidsim.models} possui implementados os 14 processos referenciais
-            discutidos no capítulo \ref{cap:processos-referenciais}.
+            O pacote \textbf{pidsim.models} possui implementados os catorze processos referenciais
+            discutidos no Capítulo \ref{cap:processos-referenciais}.
 
-            Cada processo é uma classe Python, com atributos específicos, como a expressão
-            \LaTeX que representa o processo, um método Python que representa a função de
+            Cada processo é uma classe Python, com atributos específicos, como a expressão \LaTeX\ 
+	    que representa o processo, um método Python que representa a função de
             transferência básica do processo, uma lista de argumentos que esta função recebe,
             entre outros objetos necessários ao uso dos processos pela interface Web, ou qualquer
             outra interface que venha a ser desenvolvida.
@@ -187,7 +189,7 @@ de programação utilizada no projeto do software.
 
 \section{A interface WEB}
 
-    A interface do software com o usuário é feita através da Internet, utilizando-se um aplicativo Web,
+    A interface do software com o usuário é feita através da internet, utilizando-se um aplicativo Web,
     desenvolvido com o \textit{framework web} \textbf{Flask}.
 
     Uma imagem com a tela inicial do software pode ser vista abaixo:
@@ -220,7 +222,7 @@ de programação utilizada no projeto do software.
             \item Método numérico para discretização: Runge-Kutta de quarta ordem
             \item Método de identificação para o controlador: Smith
             \item Método de sintonia para o controlador: Ziegler-Nichols
-            \item Tempo de amostragem = 0.01s
+            \item Tempo de amostragem = 1e-2s
             \item Tempo total = 20s
         \end{itemize}
         

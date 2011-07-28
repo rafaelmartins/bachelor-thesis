@@ -8,8 +8,8 @@ baseados no modelo FODT.
 \section{Modelo FODT}
 
     O modelo \ac{FODT}, é um modelo aproximado, bastante utilizado para se
-    identificar controladores \acs{PID} em malha aberta. O modelo \acs{FODT}
-    possui 3 parâmetros, o ganho do sistema $K$, a constante de tempo $\tau$
+    identificar plantas em malha aberta. O modelo \acs{FODT}
+    possui três parâmetros: o ganho do sistema $K$, a constante de tempo $\tau$
     e o tempo morto $L$, como pode ser visto na equação \ref{eq3_1}.
 
     \begin{equation}
@@ -17,11 +17,11 @@ baseados no modelo FODT.
         \label{eq3_1}
     \end{equation}
 
-    Este modelo baseia-se no tempo morto, portanto sistemas sem tempo morto,
+    Este modelo baseia-se no tempo morto, sendo que sistemas sem tempo morto,
     ou com tempo morto muito pequeno, não poderão ser identificados utilizando-se
     este modelo.
 
-    A figura abaixo mostra um exemplo de identificação de processo através
+    Na Figura abaixo é mostrado um exemplo de identificação de processo através
     do modelo \ac{FODT}.
 
     \begin{center}
@@ -31,26 +31,27 @@ baseados no modelo FODT.
 
 \section{Métodos de curva de reação para sintonia de controladores PID}
 
-    O software desenvolvido para este trabalho conta com 4 métodos de
+    O software desenvolvido para este trabalho conta com quatro métodos de
     curva de reação para sintonia de controladores \acs{PID}. Estes métodos
     serão discutidos a seguir.
     
     \subsection{Método de Ziegler-Nichols}
         
         Método de Ziegler-Nichols em malha aberta. Os parâmetros são calculados
-        de acordo com a tabela abaixo. Este método se baseia nos 3 parâmetros
+        de acordo com a Tabela \ref{table_cap3_1}. Este método se baseia nos três parâmetros
         básicos do modelo \acs{FODT}.
-        
+       
         \newpage
-        
+
         \begin{center}
-            \captionof{table}{Fórmulas para cálculo dos parâmetros - Ziegler-Nichols}
+	    \captionof{table}{Fórmulas para cálculo dos parâmetros - Ziegler-Nichols}
             \begin{tabular}{l*{3}{c}}
+            \label{table_cap3_1}
 Controlador & \multicolumn{3}{c}{Fórmulas} \\
 \hline
-P   & $Kp = \frac{\tau}{L}$     &              & \\
-PI  & $Kp = 0.9 \frac{\tau}{L}$ & $Ti = 3.33L$ & \\
-PID & $Kp = 1.2 \frac{\tau}{L}$ & $Ti = 2L$ & $Td = \frac{L}{2}$ \\
+P   & $Kp = \frac{\tau}{kL}$     &              & \\
+PI  & $Kp = 0.9 \frac{\tau}{kL}$ & $Ti = 3.33L$ & \\
+PID & $Kp = 1.2 \frac{\tau}{kL}$ & $Ti = 2L$ & $Td = \frac{L}{2}$ \\
             \end{tabular}
         \end{center}
     
@@ -58,17 +59,18 @@ PID & $Kp = 1.2 \frac{\tau}{L}$ & $Ti = 2L$ & $Td = \frac{L}{2}$ \\
         
         O método de Cohen-Coon também se baseia nos 3 parâmetros básicos
         do modelo \acs{FODT}. Os parâmetros são calculados de acordo com
-        a tabela abaixo.
+        a Tabela \ref{table_cap3_2}.
         
         \begin{center}
             \captionof{table}{Fórmulas para cálculo dos parâmetros - Cohen-Coon}
             \begin{tabular}{l*{3}{c}}
+	    \label{table_cap3_2}
 Controlador & \multicolumn{3}{c}{Fórmulas} \\
 \hline
-P   & $Kp = \frac{\tau}{L(1 + \frac{R}{3})}$             &              & \\
-PI  & $Kp = \frac{\tau}{L(\frac{10}{9} + \frac{R}{12})}$ & $Ti = L(\frac{30+3R}{9+20R})$ & \\
-PD  & $Kp = \frac{\tau}{L(\frac{5}{4} + \frac{R}{6})}$ & & $Td = L(\frac{6-2R}{22+3R})$ \\
-PID & $Kp = \frac{\tau}{L(\frac{4}{3} + \frac{R}{4})}$ & $Ti = L(\frac{32+6R}{13+8R})$ & $Td = L(\frac{4}{13+8R})$ \\
+P   & $Kp = \frac{\tau}{kL(1 + \frac{R}{3})}$             &              & \\
+PI  & $Kp = \frac{\tau}{kL(\frac{10}{9} + \frac{R}{12})}$ & $Ti = L(\frac{30+3R}{9+20R})$ & \\
+PD  & $Kp = \frac{\tau}{kL(\frac{5}{4} + \frac{R}{6})}$ & & $Td = L(\frac{6-2R}{22+3R})$ \\
+PID & $Kp = \frac{\tau}{kL(\frac{4}{3} + \frac{R}{4})}$ & $Ti = L(\frac{32+6R}{13+8R})$ & $Td = L(\frac{4}{13+8R})$ \\
             \end{tabular}
         \end{center}
     
@@ -80,10 +82,13 @@ PID & $Kp = \frac{\tau}{L(\frac{4}{3} + \frac{R}{4})}$ & $Ti = L(\frac{32+6R}{13
         de Ziegler-Nichols, adaptado para que a malha forneça uma resposta ao
         degrau com o menor tempo de subida. Os autores sugeriram um método
         de resposta rápida, sem sobrelevação, ou com 20\% de sobrelevação.
+	Os parâmetros são calculados de acordo com as Tabelas \ref{table_cap3_3}
+	e \ref{table_cap3_4}.
         
         \begin{center}
             \captionof{table}{Fórmulas para cálculo dos parâmetros - Chien, Hrones e Reswick 0\%}
             \begin{tabular}{l*{3}{c}}
+	    \label{table_cap3_3}
 Controlador & \multicolumn{3}{c}{Fórmulas} \\
 \hline
 P   & $Kp = 0.3\frac{\tau}{KL}$     &              & \\
@@ -97,6 +102,7 @@ PID & $Kp = 0.6\frac{\tau}{KL}$ & $Ti = \tau$ & $Td = 0.5L$ \\
         \begin{center}
             \captionof{table}{Fórmulas para cálculo dos parâmetros - Chien, Hrones e Reswick 20\%}
             \begin{tabular}{l*{3}{c}}
+	    \label{table_cap3_4}
 Controlador & \multicolumn{3}{c}{Fórmulas} \\
 \hline
 P   & $Kp = 0.7\frac{\tau}{KL}$     &              & \\
@@ -109,10 +115,11 @@ PID & $Kp = 0.95\frac{\tau}{KL}$ & $Ti = 1.4\tau$ & $Td = 0.47L$ \\
 \section{Métodos heurísticos para identificação de controladores PID}
 
     Os métodos heurísticos para identificação de controladores \acs{PID}
-    utilizando-se o modelo \acs{FODT} são geralmente baseados em 2 pontos,
+    utilizando-se o modelo \acs{FODT} são geralmente baseados em dois pontos,
     atrelados ao local onde a curva do gráfico da resposta ao degrau em
-    malha aberta alcança certo nível em relação à amplitude máxima da curva
-    ou ao ponto de estabilização do sistema.
+    malha aberta alcança certo nível em relação à amplitude máxima da curva,
+    ou ao ponto de estabilização do sistema. Este nivel depende do método de
+    identificação utilizado.
     
     Os dois pontos do método de identificação definem uma reta, conhecida
     como reta de sintonia. A distancia do ponto onde a reta de sintonia
@@ -121,11 +128,12 @@ PID & $Kp = 0.95\frac{\tau}{KL}$ & $Ti = 1.4\tau$ & $Td = 0.47L$ \\
     alinhado com o ponto máximo da curva até o ponto onde a reta de sintonia
     toca o eixo dos tempos.
     
-    Segue uma tabela com os pontos utilizados por cada método de identificação.
+    Segue a Tabela \ref{table_cap3_5}, com os pontos utilizados por cada método de identificação.
     
     \begin{center}
         \captionof{table}{Constantes para os métodos de identificação}
         \begin{tabular}{l l l}
+	\label{table_cap3_5}
 Método & $\%p1(t1)$ & $\%p2(t2)$ \\
 \hline
 Alfaro                    & 25.0 & 75.0 \\
@@ -138,11 +146,11 @@ Vitecková \textit{et al.} & 33.0 & 70.0 \\
     \end{center}
     
     No software do projeto, os pontos e a reta são definidos geometricamente,
-    de acordo com a tabela.    
+    de acordo com a Tabela \ref{table_cap3_5}.
 
 \section{Conclusões parciais}
 
     O modelo \acs{FODT}, com seus métodos de identificação e sintonia de
     controladores, é extremamente útil, apesar de sua aparente simplicidade e
     facilidade de uso, servindo relativamente bem a diversos casos de uso, onde
-    a aplicação de um modelo mais avançado seria altamente custosa.
+    a aplicação de um modelo mais avançado seria computacionalmente custosa.
