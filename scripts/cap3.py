@@ -42,12 +42,12 @@ class Plot:
         t1, y1 = ident.tuning_line
         ax.plot(t1, y1, label='Reta de Sintonia')
         ax.annotate(
-            '%.1f%%' % ident.point1, xy=(t1[1], y1[1]), xycoords='data',
+            '%.1f%% (p1)' % ident.point1, xy=(t1[1], y1[1]), xycoords='data',
             xytext=(t1[1]+(self.total_time/15.0), y1[1]),
             arrowprops=dict(facecolor='black', shrink=0.05),
         )
         ax.annotate(
-            '%.1f%%' % ident.point2, xy=(t1[2], y1[2]), xycoords='data',
+            '%.1f%% (p2)' % ident.point2, xy=(t1[2], y1[2]), xycoords='data',
             xytext=(t1[2]+(self.total_time/15.0), y1[2]),
             arrowprops=dict(facecolor='black', shrink=0.05),
         )
@@ -56,7 +56,7 @@ class Plot:
             if arg in self.blacklist_args:
                 continue
             legend.append('%s=%s' % (arg, self.kwargs[arg]))
-        ax.legend(loc='best', prop={'size': 'x-small'}, title='; '.join(legend))
+        #ax.legend(loc='best', prop={'size': 'x-small'}, title='; '.join(legend))
         canvas = FigureCanvas(fig)
         filename = 'cap3_model%i_%i.eps' % (self.model, self.plot_id)
         canvas.print_eps(os.path.join(output_dir, filename))

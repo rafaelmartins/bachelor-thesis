@@ -71,12 +71,12 @@ plots = [
     Plot(9, 0.01, 40, Tau=5, pade_order=5),
     Plot(10, 0.01, 60),
     Plot(11, 0.01, 80),
-    Plot(12, 0.01, 20, Zeta=1, Omega=1),
-    Plot(12, 0.01, 60, Zeta=5, Omega=1),
-    Plot(12, 0.01, 12, Zeta=1, Omega=2),
-    Plot(12, 0.01, 20, Zeta=5, Omega=2),
-    Plot(12, 0.01, 10, Zeta=1, Omega=10),
-    Plot(12, 0.01, 10, Zeta=5, Omega=10),
+    Plot(12, 0.01, 60, Zeta=0.1, Omega=1),
+    Plot(12, 0.01, 20, Zeta=0.5, Omega=1),
+    Plot(12, 0.01, 30, Zeta=0.1, Omega=2),
+    Plot(12, 0.01, 8, Zeta=0.5, Omega=2),
+    Plot(12, 0.01, 10, Zeta=0.1, Omega=10),
+    Plot(12, 0.01, 10, Zeta=0.5, Omega=10),
     Plot(13, 0.01, 10),
     Plot(14, 0.01, 50, Tau=5, pade_order=5)
 ]

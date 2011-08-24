@@ -28,9 +28,11 @@ do aluno que utiliza-se deste software como ferramenta de estudo dos controlador
     pela constante de tempo $\tau$), pelo seu curto tempo de subida, este processo
     é difícil de se identificar através de métodos que utilizem a curva de reação.
     A resposta ao degrau para o processo de primeira ordem encontra-se na Figura
-    \ref{cap2_1}
+    \ref{cap2_1} e a função de transferência do mesmo processo encontra-se na
+    Equação \ref{eq1}.
     
     \begin{equation}
+        \label{eq1}
         G_p(s) = \frac{k}{(1+\tau s)}
     \end{equation}
     
@@ -39,6 +41,9 @@ do aluno que utiliza-se deste software como ferramenta de estudo dos controlador
         \captionof{figure}{Processo de primeira ordem}
     \label{cap2_1}
     \end{center}
+
+    O gráfico do processo é simples, apresentando crescimento monotônico ao
+    decorrer do tempo.
 
 \subsection{Processo de segunda ordem}
     
@@ -50,9 +55,11 @@ do aluno que utiliza-se deste software como ferramenta de estudo dos controlador
     identificação utilizando a curva de reação do que o processo referencial de
     primeira ordem. A resposta ao degrau para o processo de segunda ordem, utilizando
     alguns valores diferentes para $T_1$ e $T_2$, está na Figura \ref{cap2_2_1}, na Figura
-    \ref{cap2_2_2} e na Figura \ref{cap2_2_3}.
+    \ref{cap2_2_2} e na Figura \ref{cap2_2_3}. A função de transferência do mesmo
+    processo encontra-se na Equação \ref{eq2}
     
     \begin{equation}
+        \label{eq2}
         G_p(s) = \frac{k}{(1+T_1 s)(1+T_2 s)}
     \end{equation}
     
@@ -74,6 +81,9 @@ do aluno que utiliza-se deste software como ferramenta de estudo dos controlador
         \label{cap2_2_3}
     \end{center}
 
+    Analisando-se as Figuras, percebe-se um grande aumento no tempo de estabilização
+    do processo, de acordo com o aumento dos tempos $T_1$ e $T_2$.
+
 \subsection{Processo de segunda ordem de fase não-mínima}
 
     O processo de segunda ordem de fase não-mínima tem uma dinâmica diferente dos
@@ -86,9 +96,11 @@ do aluno que utiliza-se deste software como ferramenta de estudo dos controlador
     de identificação por curva de reação, dependendo dos parâmetros do processo,
     que são o ganho estático $k$ e as constantes de tempo $T_1$ e $T_2$. A resposta
     ao degrau para o processo de segunda ordem de fase não-mínima está na Figura
-    \ref{cap2_3}.
+    \ref{cap2_3} e a função de transferência do mesmo processo está na Equação
+    \ref{eq3}.
 
     \begin{equation}
+        \label{eq3}
         G_p(s) = \frac{k(1-T_1 s)}{(1+T_1 s)(1+T_2 s)}
     \end{equation}
 
@@ -97,6 +109,9 @@ do aluno que utiliza-se deste software como ferramenta de estudo dos controlador
         \captionof{figure}{Processo de segunda ordem de fase não-mínima}
         \label{cap2_3}
     \end{center}
+
+    Na Figura acima, a fase não-mínima pode ser notada no início da curva, onde
+    a mesma atravessa o eixo dos tempos e assume valores de amplitude negativos.
 
 \subsection{Processo de terceira ordem com tempo morto ajustável}
     
@@ -109,9 +124,11 @@ do aluno que utiliza-se deste software como ferramenta de estudo dos controlador
     de se controlar com controladores \acs{PID} convencionais, pois quanto maior
     o tempo morto, maior a razão de controlabilidade ($\alpha = \frac{L}{\tau}$).
     A resposta ao degrau para o processo de terceira ordem com tempo morto ajustável
-    está na Figura \ref{cap2_4}.
+    está na Figura \ref{cap2_4} e a função de transferência para o mesmo processo
+    está na Equação \ref{eq4}.
     
     \begin{equation}
+        \label{eq4}
         G_p(s) = \frac{k(1+T_4 s)}{(1+T_1 s)(1+T_2 s)(1+T_3 s)} e^{-T_t s}
     \end{equation}
     
@@ -121,6 +138,8 @@ do aluno que utiliza-se deste software como ferramenta de estudo dos controlador
         \label{cap2_4}
     \end{center}
 
+    O tempo morto pode ser claramente percebido no início da curva da Figura acima.
+
 \subsection{Processo de pólos múltiplos e iguais}
 
     O processo de pólos múltiplos e iguais possui dinâmica variável, dependendo
@@ -128,13 +147,11 @@ do aluno que utiliza-se deste software como ferramenta de estudo dos controlador
     
     Os valores de $n$ variam de 1 a 4, tipicamente. As Figuras \ref{cap2_5},
     \ref{cap2_6}, \ref{cap2_7} e \ref{cap2_8} apresentam os gráficos para
-    $n$ igual a 1, 2, 3 e 4, respectivamente.
-    
-    A partir da análise dos gráficos, percebe-se que o aumento da ordem do sistema
-    tende a facilitar a identificação através dos métodos de identificação por
-    curva de reação.
+    $n$ igual a 1, 2, 3 e 4, respectivamente. A função de transferência para o
+    processo de pólos múltiplos e iguais está na Equação \ref{eq5}.
     
     \begin{equation}
+        \label{eq5}
         G_p(s) = \frac{1}{(s+1)^n}
     \end{equation}
 
@@ -162,6 +179,10 @@ do aluno que utiliza-se deste software como ferramenta de estudo dos controlador
         \label{cap2_8}
     \end{center}
 
+    A partir da análise dos gráficos, percebe-se que o aumento da ordem do sistema
+    tende a facilitar a identificação através dos métodos de identificação por
+    curva de reação.
+    
 \subsection{Processo de quarta ordem}
     
     O processo de quarta ordem tem dinâmica definida pelo parâmetro $\alpha$,
@@ -170,20 +191,22 @@ do aluno que utiliza-se deste software como ferramenta de estudo dos controlador
     Para $\alpha = 1$, este processo se comporta como o anterior, para $n = 4$.
     
     As figuras \ref{cap2_9} e \ref{cap2_10} mostram o comportamento deste
-    processo para $\alpha$ igual a 0.2 e 0.5, respectivamente
+    processo para $\alpha$ igual a 0.2 e 0.5, respectivamente. A função de
+    transferência para o mesmo processo está disponível na Equação \ref{eq6}.
     
     \begin{equation}
+        \label{eq6}
         G_p(s) = \frac{1}{(s+1)(\alpha s+1)(\alpha ^2 s+1)(\alpha ^3 s+1)}
     \end{equation}
 
     \begin{center}
-        \includegraphics[width=0.75\textwidth]{imagens/cap2_model6_1.eps}
+        \includegraphics[width=\textwidth]{imagens/cap2_model6_1.eps}
         \captionof{figure}{Processo de quarta ordem -- $\alpha = 0.2$}
         \label{cap2_9}
     \end{center}
     
     \begin{center}
-        \includegraphics[width=0.75\textwidth]{imagens/cap2_model6_2.eps}
+        \includegraphics[width=\textwidth]{imagens/cap2_model6_2.eps}
         \captionof{figure}{Processo de quarta ordem -- $\alpha = 0.5$}
         \label{cap2_10}
     \end{center}
@@ -201,9 +224,11 @@ do aluno que utiliza-se deste software como ferramenta de estudo dos controlador
     
     Nas Figuras \ref{cap2_11}, \ref{cap2_12}, \ref{cap2_13} e \ref{cap2_14}
     são mostradas as variações de comportamento do processo para diferentes
-    valores de $\alpha$.
+    valores de $\alpha$. A função de transferência para o mesmo processo
+    está na Equação \ref{eq7}.
 
     \begin{equation}
+        \label{eq7}
         G_p(s) = \frac{1-\alpha s}{(s+1)^3}
     \end{equation}
 
@@ -231,6 +256,9 @@ do aluno que utiliza-se deste software como ferramenta de estudo dos controlador
         \label{cap2_14}
     \end{center}
 
+    Analisando-se as Figuras acima, percebe-se que o aumento da amplitude da fase não-minima é
+    diretamente proporcional ao aumento do valor de $\alpha$.
+
 \subsection{Processo de primeira ordem com tempo morto}
 
     O processo de primeira ordem com tempo morto é considerado um processo
@@ -240,14 +268,19 @@ do aluno que utiliza-se deste software como ferramenta de estudo dos controlador
     
     Assim como a maioria dos processos com tempo morto, pode ser considerado
     fácil de identificar utilizando métodos de curva de reação e complicado para
-    controlar utilizando controladores \acs{PID} comuns.
+    controlar utilizando controladores \acs{PID} comuns, devido ao alto atraso
+    de transporte.
+
+    A função de transferência para o processo de primeira ordem com tempo morto 
+    está na Equação \ref{eq8}.
 
     \begin{equation}
+        \label{eq8}
         G_p(s) = \frac{1}{(\tau s +1)}e^{-s}
     \end{equation}
     
     Nos gráficos abaixo existe oscilação no tempo morto, devido à aproximação de
-    padé utilizada no software. Os gráficos foram gerados para uma aproximação
+    Padé utilizada no software. Os gráficos foram gerados para uma aproximação
     de quinta ordem.
 
     Nas Figuras \ref{cap2_8_1}, \ref{cap2_8_2} e \ref{cap2_8_3} são mostradas as
@@ -280,21 +313,27 @@ do aluno que utiliza-se deste software como ferramenta de estudo dos controlador
     \ref{cap2_18} e \ref{cap2_19} foram utilizados valores de $\tau$ iguais
     a 2 e 5, respectivamente.
     
+    A função de transferência para o processo de segunda ordem com tempo morto está na
+    Equação \ref{eq9}.
+    
     \begin{equation}
+        \label{eq9}
         G_p(s) = \frac{1}{(\tau s +1)^2}e^{-s}
     \end{equation}
 
     \begin{center}
-        \includegraphics[width=0.75\textwidth]{imagens/cap2_model9_1.eps}
+        \includegraphics[width=\textwidth]{imagens/cap2_model9_1.eps}
         \captionof{figure}{Processo de segunda ordem com tempo morto -- $\tau = 2$}
         \label{cap2_18}
     \end{center}
     
     \begin{center}
-        \includegraphics[width=0.75\textwidth]{imagens/cap2_model9_2.eps}
+        \includegraphics[width=\textwidth]{imagens/cap2_model9_2.eps}
         \captionof{figure}{Processo de segunda ordem com tempo morto -- $\tau = 5$}
         \label{cap2_19}
     \end{center}
+
+    O valor de $\tau$ é diretamente proporcional ao tempo de estabilização do processo.
 
 \subsection{Processo com características dinâmicas assimétricas}
     
@@ -306,7 +345,10 @@ do aluno que utiliza-se deste software como ferramenta de estudo dos controlador
     simples e identificando o processo com métodos de curva de reação, por conta das
     características assimétricas do processo. Vide Figura \ref{cap2_20}.
     
+    A função de transferência para este processo está na Equação \ref{eq10}.
+
     \begin{equation}
+        \label{eq10}
         G_p(s) = \frac{100}{(s+10)^2}\left ( \frac{1}{s+1} + \frac{0,5}{s+0,05} \right )
     \end{equation}
     
@@ -316,13 +358,19 @@ do aluno que utiliza-se deste software como ferramenta de estudo dos controlador
         \label{cap2_20}
     \end{center}
 
+    A partir da Figura acima é possível perceber que o processo nunca se estabilizará,
+    devido às suas características assimétricas.
+
 \subsection{Processo condicionalmente estável}
     
     O processo condicionalmente estável pode se comportar como um processo estável
     ou instável, dependendo do ajuste do ponto de operação dos controladores.
     Vide Figura \ref{cap2_21}.
+
+    A função de transferência para este processo está na Equação \ref{eq11}.
     
     \begin{equation}
+        \label{eq11}
         G_p(s) = \frac{(s+6)^2}{s(s+1)^2 (s+36)}
     \end{equation}
     
@@ -338,7 +386,10 @@ do aluno que utiliza-se deste software como ferramenta de estudo dos controlador
     Considerando-se o valor de $zeta$ igual a $0$ ou $1$, e o valor de $\omega _0$
     igual a $1$, $2$, $5$ ou $10$, tipicamente.
 
+    A função de transferência para este processo está na Equação \ref{eq12}.
+
     \begin{equation}
+        \label{eq12}
         G_p(s) = \frac{\omega _0^2}{(s+1)(s^2+2\zeta \omega _0 s+\omega _0^2)}
     \end{equation}
     
@@ -349,47 +400,54 @@ do aluno que utiliza-se deste software como ferramenta de estudo dos controlador
     
     \begin{center}
         \includegraphics[width=0.75\textwidth]{imagens/cap2_model12_1.eps}
-        \captionof{figure}{Processo oscilatório -- $\omega _0 = 1$, $\zeta = 1$}
+        \captionof{figure}{Processo oscilatório -- $\omega _0 = 1$, $\zeta = 0.1$}
 	\label{cap2_12_1}
     \end{center}
     
     \begin{center}
         \includegraphics[width=0.75\textwidth]{imagens/cap2_model12_2.eps}
-        \captionof{figure}{Processo oscilatório -- $\omega _0 = 1$, $\zeta = 5$}
+        \captionof{figure}{Processo oscilatório -- $\omega _0 = 1$, $\zeta = 0.5$}
 	\label{cap2_12_2}
     \end{center}
     
     \begin{center}
         \includegraphics[width=0.75\textwidth]{imagens/cap2_model12_3.eps}
-        \captionof{figure}{Processo oscilatório -- $\omega _0 = 2$, $\zeta = 1$}
+        \captionof{figure}{Processo oscilatório -- $\omega _0 = 2$, $\zeta = 0.1$}
 	\label{cap2_12_3}
     \end{center}
     
     \begin{center}
         \includegraphics[width=0.75\textwidth]{imagens/cap2_model12_4.eps}
-        \captionof{figure}{Processo oscilatório -- $\omega _0 = 2$, $\zeta = 5$}
+        \captionof{figure}{Processo oscilatório -- $\omega _0 = 2$, $\zeta = 0.5$}
         \label{cap2_12_4}
     \end{center}
     
     \begin{center}
         \includegraphics[width=0.75\textwidth]{imagens/cap2_model12_5.eps}
-        \captionof{figure}{Processo oscilatório -- $\omega _0 = 10$, $\zeta = 1$}
+        \captionof{figure}{Processo oscilatório -- $\omega _0 = 10$, $\zeta = 0.1$}
 	\label{cap2_12_5}
     \end{center}
     
     \begin{center}
         \includegraphics[width=0.75\textwidth]{imagens/cap2_model12_6.eps}
-        \captionof{figure}{Processo oscilatório -- $\omega _0 = 10$, $\zeta = 5$}
+        \captionof{figure}{Processo oscilatório -- $\omega _0 = 10$, $\zeta = 0.5$}
 	\label{cap2_12_6}
     \end{center}
+
+    A partir da análise das Figuras acima, percebe-se que quanto menor o valor de
+    $\zeta$, maior é a oscilação do processo, e que quanto maior o valor de $\omega$,
+    menor é a sobreelevação do processo.
 
 \subsection{Processo instável}
     
     O processo instável é difícil de controlar utilizando-se controladores \ac{PID}
     comuns e impossível de se identificar utilizando-se os métodos por curva de
     reação, pela sua característica de instabilidade. Vide Figura \ref{cap2_13_1}
-    
+   
+    A função de transferência para este processo está na Equação \ref{eq13}.
+
     \begin{equation}
+        \label{eq13}
         G_p(s) = \frac{1}{s^2 - 1}
     \end{equation}
     
@@ -399,13 +457,19 @@ do aluno que utiliza-se deste software como ferramenta de estudo dos controlador
 	\label{cap2_13_1}
     \end{center}
 
+    A partir da análise da Figura acima, percebe-se que a tendência da curva é sempre
+    crescer em aplitude, impossibilitando a estabilização do processo.
+
 \subsection{Processo de primeira ordem mais tempo morto com a presença de integrador}
     
     O processo de primeira ordem mais tempo morto com a presença de integrador é
     similar ao processo de primeira ordem mais tempo morto, mas possui um pólo
     na origem, dificultando o controle do processo. Vide Figura \ref{cap2_26}
     
+    A função de transferência para este processo está na Equação \ref{eq14}.
+
     \begin{equation}
+        \label{eq14}
         G_p(s) = \frac{1}{s(\tau s + 1)}e^{-s}
     \end{equation}
     
@@ -414,6 +478,9 @@ do aluno que utiliza-se deste software como ferramenta de estudo dos controlador
         \captionof{figure}{Processo de primeira ordem mais tempo morto com a presença de integrador}
         \label{cap2_26}
     \end{center}
+
+    A presença do integrador no processo faz com que a curva de resposta ao degrau tenda
+    a sempre crescer, dificultando o controle do processo, como pode ser visto na Figura acima.
 
 \section{Conclusões parciais}
 

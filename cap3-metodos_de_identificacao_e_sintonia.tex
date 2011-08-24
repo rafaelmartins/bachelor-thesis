@@ -22,14 +22,72 @@ baseados no modelo FODT.
     este modelo.
 
     Na Figura abaixo é mostrado um exemplo de identificação de processo através
-    do modelo \ac{FODT}.
+    do modelo \ac{FODT}, utilizando-se o Método de Smith.
 
     \begin{center}
+        \label{cap3_fig1}
         \includegraphics[width=\textwidth]{imagens/cap3_model4_1.eps}
-        \captionof{figure}{Modelo FODT - Processo de terceira ordem com tempo morto ajustável}
+        \captionof{figure}{Modelo FODT -- Método de Smith --  Processo de terceira ordem com tempo morto ajustável}
     \end{center}
 
-\section{Métodos de curva de reação para sintonia de controladores PID}
+\section{Métodos baseados na curva de reação para identificação de procesos}
+
+    Os métodos baseados na curva de reação para identificação de procesos
+    utilizando-se o modelo \acs{FODT} são geralmente baseados em dois pontos
+    ($p1$ e $p2$ na Figura \ref{cap3_fig1}), atrelados ao local onde a curva
+    do gráfico da resposta ao degrau em malha aberta alcança certo nível em
+    relação à amplitude do ponto de estabilização do sistema, dependendo do
+    método de identificação utilizado.
+    
+    Estes dois pontos definem uma reta, conforme pode ser visto na Figura
+    \ref{cap3_fig1}. A distancia do ponto onde a reta de toca o eixo do tempo
+    até sua origem é o tempo morto $L$. O valor de $\tau$ é a constante de
+    tempo, medida da projeção do extremo da reta de alinhado com o ponto
+    máximo da curva até o ponto onde a reta toca o eixo dos tempos.
+    
+    Segue a Tabela \ref{table_cap3_5}, com os dois pontos utilizados por cada
+    método de identificação.
+    
+    \begin{center}
+        \captionof{table}{Constantes para os métodos de identificação}
+        \begin{tabular}{l l l}
+        \label{table_cap3_5}
+Método & $\%p1(t1)$ & $\%p2(t2)$ \\
+\hline
+Alfaro                    & 25.0 & 75.0 \\
+Broida                    & 28.0 & 40.0 \\
+Chen \& Yang              & 33.0 & 67.0 \\
+Ho \textit{et al.}        & 35.0 & 85.0 \\
+Smith                     & 28.3 & 63.2 \\
+Vitecková \textit{et al.} & 33.0 & 70.0 \\
+        \end{tabular}
+    \end{center}
+    
+    A amplitude da curva, quando em regime permanente, geralmente representada pela amplitude
+    do ultimo ponto da curva nos gráficos, representa o parametro $k$, o ganho
+    estático. Para cada método de identificação temos valores diferentes de $\tau$ (constante de
+    tempo) e $L$ (tempo morto), que dependem dos pontos definidos para o mesmo
+    (em porcentagem do valor de $k$, disponíveis na Tabela \ref{table_cap3_5}).
+    
+    As Equações \ref{eq3_2} e \ref{eq3_3} definem os valores de $\tau$ e $L$,
+    através dos valores de $t1$ e $t2$, que são os tempos em que a curva atinge
+    os pontos $p1$ e $p2$ respectivamente.
+    
+    \begin{equation}
+        \tau = 1.5(t2 - t1)
+        \label{eq3_2}
+    \end{equation}
+    
+    \begin{equation}
+        L = t2 - \tau
+        \label{eq3_3}
+    \end{equation}
+    
+    Os valores de $k$, $\tau$ e $L$ são
+    utilizados pelos métodos de sintonia, para calcular os ganhos do controlador desejado.
+
+
+\section{Métodos de sintonia para controladores \acs{PID} utilizando curva de reação}
 
     O software desenvolvido para este trabalho conta com quatro métodos de
     curva de reação para sintonia de controladores \acs{PID}. Estes métodos
@@ -41,17 +99,17 @@ baseados no modelo FODT.
         de acordo com a Tabela \ref{table_cap3_1}. Este método se baseia nos três parâmetros
         básicos do modelo \acs{FODT}.
        
-        \newpage
+        %\newpage
 
         \begin{center}
-	    \captionof{table}{Fórmulas para cálculo dos parâmetros - Ziegler-Nichols}
+            \captionof{table}{Fórmulas para cálculo dos parâmetros - Ziegler-Nichols}
             \begin{tabular}{l*{3}{c}}
             \label{table_cap3_1}
 Controlador & \multicolumn{3}{c}{Fórmulas} \\
 \hline
 P   & $Kp = \frac{\tau}{kL}$     &              & \\
-PI  & $Kp = 0.9 \frac{\tau}{KL}$ & $Ti = 3.33L$ & \\
-PID & $Kp = 1.2 \frac{\tau}{KL}$ & $Ti = 2L$ & $Td = \frac{L}{2}$ \\
+PI  & $Kp = 0.9 \frac{\tau}{kL}$ & $Ti = 3.33L$ & \\
+PID & $Kp = 1.2 \frac{\tau}{kL}$ & $Ti = 2L$ & $Td = \frac{L}{2}$ \\
             \end{tabular}
         \end{center}
     
@@ -64,13 +122,13 @@ PID & $Kp = 1.2 \frac{\tau}{KL}$ & $Ti = 2L$ & $Td = \frac{L}{2}$ \\
         \begin{center}
             \captionof{table}{Fórmulas para cálculo dos parâmetros - Cohen-Coon}
             \begin{tabular}{l*{3}{c}}
-	    \label{table_cap3_2}
+            \label{table_cap3_2}
 Controlador & \multicolumn{3}{c}{Fórmulas} \\
 \hline
-P   & $Kp = \frac{\tau}{KL(1 + \frac{R}{3})}$             &              & \\
-PI  & $Kp = \frac{\tau}{KL(\frac{10}{9} + \frac{R}{12})}$ & $Ti = L(\frac{30+3R}{9+20R})$ & \\
-PD  & $Kp = \frac{\tau}{KL(\frac{5}{4} + \frac{R}{6})}$ & & $Td = L(\frac{6-2R}{22+3R})$ \\
-PID & $Kp = \frac{\tau}{KL(\frac{4}{3} + \frac{R}{4})}$ & $Ti = L(\frac{32+6R}{13+8R})$ & $Td = L(\frac{4}{13+8R})$ \\
+P   & $Kp = \frac{\tau}{kL(1 + \frac{R}{3})}$             &              & \\
+PI  & $Kp = \frac{\tau}{kL(\frac{10}{9} + \frac{R}{12})}$ & $Ti = L(\frac{30+3R}{9+20R})$ & \\
+PD  & $Kp = \frac{\tau}{kL(\frac{5}{4} + \frac{R}{6})}$ & & $Td = L(\frac{6-2R}{22+3R})$ \\
+PID & $Kp = \frac{\tau}{kL(\frac{4}{3} + \frac{R}{4})}$ & $Ti = L(\frac{32+6R}{13+8R})$ & $Td = L(\frac{4}{13+8R})$ \\
             \end{tabular}
         \end{center}
     
@@ -82,75 +140,40 @@ PID & $Kp = \frac{\tau}{KL(\frac{4}{3} + \frac{R}{4})}$ & $Ti = L(\frac{32+6R}{1
         de Ziegler-Nichols, adaptado para que a malha forneça uma resposta ao
         degrau com o menor tempo de subida. Os autores sugeriram um método
         de resposta rápida, sem sobrelevação, ou com 20\% de sobrelevação.
-	Os parâmetros são calculados de acordo com as Tabelas \ref{table_cap3_3}
-	e \ref{table_cap3_4}.
+        Os parâmetros são calculados de acordo com as Tabelas \ref{table_cap3_3}
+        e \ref{table_cap3_4}.
         
+        \newpage
+
         \begin{center}
             \captionof{table}{Fórmulas para cálculo dos parâmetros - Chien, Hrones e Reswick 0\%}
             \begin{tabular}{l*{3}{c}}
-	    \label{table_cap3_3}
+            \label{table_cap3_3}
 Controlador & \multicolumn{3}{c}{Fórmulas} \\
 \hline
-P   & $Kp = 0.3\frac{\tau}{KL}$     &              & \\
-PI  & $Kp = 0.35\frac{\tau}{KL}$ & $Ti = 1.2\tau$ & \\
-PID & $Kp = 0.6\frac{\tau}{KL}$ & $Ti = \tau$ & $Td = 0.5L$ \\
+P   & $Kp = 0.3\frac{\tau}{kL}$     &              & \\
+PI  & $Kp = 0.35\frac{\tau}{kL}$ & $Ti = 1.2\tau$ & \\
+PID & $Kp = 0.6\frac{\tau}{kL}$ & $Ti = \tau$ & $Td = 0.5L$ \\
             \end{tabular}
         \end{center}
 
-        \newpage
+        %\newpage
 
         \begin{center}
             \captionof{table}{Fórmulas para cálculo dos parâmetros - Chien, Hrones e Reswick 20\%}
             \begin{tabular}{l*{3}{c}}
-	    \label{table_cap3_4}
+            \label{table_cap3_4}
 Controlador & \multicolumn{3}{c}{Fórmulas} \\
 \hline
-P   & $Kp = 0.7\frac{\tau}{KL}$     &              & \\
-PI  & $Kp = 0.6\frac{\tau}{KL}$ & $Ti = \tau$ & \\
-PID & $Kp = 0.95\frac{\tau}{KL}$ & $Ti = 1.4\tau$ & $Td = 0.47L$ \\
+P   & $Kp = 0.7\frac{\tau}{kL}$     &              & \\
+PI  & $Kp = 0.6\frac{\tau}{kL}$ & $Ti = \tau$ & \\
+PID & $Kp = 0.95\frac{\tau}{kL}$ & $Ti = 1.4\tau$ & $Td = 0.47L$ \\
             \end{tabular}
         \end{center}
-
-
-\section{Métodos heurísticos para identificação de controladores PID}
-
-    Os métodos heurísticos para identificação de controladores \acs{PID}
-    utilizando-se o modelo \acs{FODT} são geralmente baseados em dois pontos,
-    atrelados ao local onde a curva do gráfico da resposta ao degrau em
-    malha aberta alcança certo nível em relação à amplitude máxima da curva,
-    ou ao ponto de estabilização do sistema. Este nivel depende do método de
-    identificação utilizado.
-    
-    Os dois pontos do método de identificação definem uma reta, conhecida
-    como reta de sintonia. A distancia do ponto onde a reta de sintonia
-    toca o eixo do tempo até sua origem é o tempo morto $L$. O valor de $\tau$
-    é a constante de tempo, medida da projeção do extremo da reta de sintonia
-    alinhado com o ponto máximo da curva até o ponto onde a reta de sintonia
-    toca o eixo dos tempos.
-    
-    Segue a Tabela \ref{table_cap3_5}, com os pontos utilizados por cada método de identificação.
-    
-    \begin{center}
-        \captionof{table}{Constantes para os métodos de identificação}
-        \begin{tabular}{l l l}
-	\label{table_cap3_5}
-Método & $\%p1(t1)$ & $\%p2(t2)$ \\
-\hline
-Alfaro                    & 25.0 & 75.0 \\
-Broida                    & 28.0 & 40.0 \\
-Chen \& Yang              & 33.0 & 67.0 \\
-Ho \textit{et al.}        & 35.0 & 85.0 \\
-Smith                     & 28.3 & 63.2 \\
-Vitecková \textit{et al.} & 33.0 & 70.0 \\
-        \end{tabular}
-    \end{center}
-    
-    No software do projeto, os pontos e a reta são definidos geometricamente,
-    de acordo com a Tabela \ref{table_cap3_5}.
 
 \section{Conclusões parciais}
 
     O modelo \acs{FODT}, com seus métodos de identificação e sintonia de
     controladores, é extremamente útil, apesar de sua aparente simplicidade e
     facilidade de uso, servindo relativamente bem a diversos casos de uso, onde
-    a aplicação de um modelo mais avançado seria computacionalmente custosa.
+    a aplicação de um modelo mais avançado provocaria um esforço computacional maior.
