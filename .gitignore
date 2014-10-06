@@ -1,0 +1,13 @@
+*.aux
+*.bbl
+*.blg
+*.dvi
+*.lof
+*.log
+*.lot
+*.toc
+*.bak
+*.orig
+
+/monografia.pdf
+/imagens

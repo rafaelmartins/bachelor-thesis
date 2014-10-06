@@ -1,5 +1,0 @@
-\.(aux|bbl|blg|dvi|lof|log|lot|toc)$
-^monografia\.pdf$
-^imagens/
-\.bak$
-\.orig$
